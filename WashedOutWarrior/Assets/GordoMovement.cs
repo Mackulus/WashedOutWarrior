@@ -6,7 +6,7 @@ public class GordoMovement : MonoBehaviour {
 
 	public float gordoSpeed;
 	public float gordoJumpPower;
-	private float moveX;
+	private float moveX, moveY;
 	private bool facingLeft = true;
 	Animator anim;
 	private bool isWalking = false;
@@ -21,75 +21,70 @@ public class GordoMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		MoveGordo();
-		GordoRaycast();
+        GordoRaycast();
 	}
 
-	void MoveGordo()
-	{
+    void MoveGordo() {
 		moveX = Input.GetAxis("Horizontal");
-		if (moveX != 0.0f && isWalking == false)
-		{
+		if (moveX != 0.0f && isWalking == false) {
 			anim.ResetTrigger("Idle_01");
 			anim.SetTrigger("Walk_01");
 			isWalking = true;
 		}
-		else if (moveX == 0.0f && isWalking == true)
-		{
+		else if (moveX == 0.0f && isWalking == true) {
 			anim.ResetTrigger("Walk_01");
 			anim.SetTrigger("Idle_01");
 			isWalking = false;
 		}
 
-		if(Input.GetButtonDown("Jump"))
-		{
+        moveY = Input.GetAxis("Vertical");
+        //if (Input.GetButtonDown("Jump"))
+        if (moveY > 0.0F) {
 			GordoJump();
 		}
 
-		if (moveX > 0.0f && facingLeft == true || moveX < 0.0f && facingLeft == false)
-		{
+		if (moveX > 0.0f && facingLeft == true || moveX < 0.0f && facingLeft == false) {
 			FlipGordo();
 		}
 
 		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX*gordoSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
 	}
 
-	void FlipGordo()
-	{
+	void FlipGordo() {
 		facingLeft = !facingLeft;
 		Vector2 localScale = gameObject.transform.localScale;
 		localScale.x *= -1;
 		transform.localScale = localScale;
 	}
 
-	void GordoJump()
-	{
-		gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-		anim.SetTrigger("Jump_01");
-		Invoke("GordoJumpForce", 0.25f);
-		isJumping = true;
-		Invoke("TurnJumpOff", 1.22f);
+	void GordoJump() {
+        if (!isJumping) {
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+		    anim.SetTrigger("Jump_01");
+		    Invoke("GordoJumpForce", 0.25f);
+		    isJumping = true;
+            isGrounded = false;
+		    Invoke("TurnJumpOff", 1.22f);
+        }
 	}
 
-	void GordoJumpForce()
-	{
+	void GordoJumpForce() {
 		gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*gordoJumpPower);
 	}
 
-	void TurnJumpOff()
-	{
+	void TurnJumpOff() {
 		isJumping = false;
 	}
 
-	void OnTriggerEnter2d(Collision2D coll)
-	{
-		print(coll.collider.tag);
-	}
+    private void OnCollisionEnter2D(Collision2D collision) {
+        print(collision.collider.tag);
+    }
 
 	void GordoRaycast()
 	{
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
 		//print(hit.collider.tag);
-		if (hit!= null && hit.collider!= null)
+		if (hit != null && hit.collider != null)
 		{
 			if (hit.distance < 0.1f && hit.collider.tag == "Enemy")
 			{
@@ -101,12 +96,14 @@ public class GordoMovement : MonoBehaviour {
 				//hit.collider.gameObject.GetComponent<EnemyMove>().enabled = false;
 				//Destroy(hit.collider.gameObject);
 			}
+            /*
 			if (hit.distance < 0.1f && hit.collider.tag == "Ground" && !isJumping)
 			{
 				print("Hitting the ground");
 				isGrounded = true;
 				gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
 			}
+            */
 		}
 	}
 }
