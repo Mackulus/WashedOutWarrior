@@ -10,12 +10,12 @@ public class GordoMovement : MonoBehaviour {
 	private bool facingLeft = true;
 	Animator anim;
 	private bool isWalking = false;
-	bool isGrounded;
+	//bool isGrounded;
 	bool isJumping = false;
 
-	void Start()
-	{
+	void Start() {
 		anim = GetComponent<Animator>();
+        GetComponent<Rigidbody2D>().freezeRotation = true;
 	}
 
 	// Update is called once per frame
@@ -63,7 +63,7 @@ public class GordoMovement : MonoBehaviour {
 		    anim.SetTrigger("Jump_01");
 		    Invoke("GordoJumpForce", 0.25f);
 		    isJumping = true;
-            isGrounded = false;
+            //isGrounded = false;
 		    Invoke("TurnJumpOff", 1.22f);
         }
 	}
