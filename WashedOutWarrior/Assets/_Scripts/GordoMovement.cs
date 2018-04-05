@@ -39,7 +39,7 @@ public class GordoMovement : MonoBehaviour {
 
         moveY = Input.GetAxis("Vertical");
         //if (Input.GetButtonDown("Jump"))
-        if (moveY > 0.0F) {
+        if (moveY > 0.0F && !isJumping) {
 			GordoJump();
 		}
 
@@ -59,10 +59,10 @@ public class GordoMovement : MonoBehaviour {
 
 	void GordoJump() {
         if (!isJumping) {
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+			isJumping = true;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 		    anim.SetTrigger("Jump_01");
 		    Invoke("GordoJumpForce", 0.25f);
-		    isJumping = true;
             //isGrounded = false;
 		    Invoke("TurnJumpOff", 1.22f);
         }
