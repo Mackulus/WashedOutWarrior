@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent (typeof(SpriteRenderer))]
 
 public class Tiling : MonoBehaviour {
 
-	public int offsetX = 2;			// the offset so that we don't get any weird errors
+	public float offsetX = 2f;			// the offset so that we don't get any weird errors
 
 	// these are used for checking if we need to instantiate stuff
 	public bool hasARightBuddy = false;
@@ -25,7 +26,8 @@ public class Tiling : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
-		spriteWidth = sRenderer.sprite.bounds.size.x;
+		spriteWidth = sRenderer.sprite.bounds.size.x * Mathf.Abs(transform.localScale.x);
+		print(this + " " + spriteWidth);
 	}
 
 	// Update is called once per frame
@@ -65,7 +67,15 @@ public class Tiling : MonoBehaviour {
 			newBuddy.localScale = new Vector3 (newBuddy.localScale.x*-1, newBuddy.localScale.y, newBuddy.localScale.z);
 		}
 
-		newBuddy.parent = myTransform;
+		//This ensures that the newly created buddy can parallax if it needs to
+		if(myTransform.tag == "Parallax")
+		{
+			newBuddy.parent = myTransform;
+		}
+		else
+		{
+			newBuddy.parent = myTransform.parent;
+		}
 		if (rightOrLeft > 0) {
 			newBuddy.GetComponent<Tiling>().hasALeftBuddy = true;
 		}

@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Enemy
   - Weapon
+  - Parallax
   layers:
   - Default
   - TransparentFX
