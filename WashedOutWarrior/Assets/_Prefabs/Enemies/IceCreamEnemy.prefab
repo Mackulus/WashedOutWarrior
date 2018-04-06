@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4252222886210502}
   - component: {fileID: 50099363321657540}
   - component: {fileID: 61807919701015286}
+  - component: {fileID: 114763040392337382}
   m_Layer: 0
   m_Name: IceCreamEnemy
   m_TagString: Enemy
@@ -307,7 +308,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61807919701015286
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -333,6 +334,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 0.47}
   m_EdgeRadius: 0
+--- !u!114 &114763040392337382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332439829599498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18db6cb2bc97faa46ae23508f9203c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  speed: 1
+  jumpStrength: 500
 --- !u!135 &135062395457322110
 SphereCollider:
   m_ObjectHideFlags: 1

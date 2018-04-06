@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4882419005827664}
   - component: {fileID: 50235262457254380}
   - component: {fileID: 61690748723877192}
+  - component: {fileID: 114439350869256046}
   m_Layer: 0
   m_Name: PizzaEnemy
   m_TagString: Enemy
@@ -104,6 +105,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4227918249151806}
+  - component: {fileID: 114989405921635574}
   m_Layer: 0
   m_Name: Eye (1)
   m_TagString: Untagged
@@ -155,6 +157,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4219676687947672}
+  - component: {fileID: 114139730941808664}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -511,7 +514,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61690748723877192
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -537,6 +540,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.36}
   m_EdgeRadius: 0
+--- !u!114 &114139730941808664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904179706497456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
+--- !u!114 &114439350869256046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217741732599474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18db6cb2bc97faa46ae23508f9203c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  speed: 1
+  jumpStrength: 500
+--- !u!114 &114989405921635574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468448780925364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
 --- !u!135 &135480327249915196
 SphereCollider:
   m_ObjectHideFlags: 1

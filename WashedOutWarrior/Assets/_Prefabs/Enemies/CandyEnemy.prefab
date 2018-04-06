@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4545270523035120}
+  - component: {fileID: 114074081435511974}
   m_Layer: 0
   m_Name: Eye (1)
   m_TagString: Untagged
@@ -105,6 +106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4761431998318356}
+  - component: {fileID: 114827267399860724}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -137,6 +139,7 @@ GameObject:
   - component: {fileID: 4440344275283238}
   - component: {fileID: 50162610419746848}
   - component: {fileID: 61980662285128866}
+  - component: {fileID: 114766870310379334}
   m_Layer: 0
   m_Name: CandyEnemy
   m_TagString: Enemy
@@ -537,6 +540,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.22}
   m_EdgeRadius: 0
+--- !u!114 &114074081435511974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001689611569582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
+--- !u!114 &114766870310379334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962237294481446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18db6cb2bc97faa46ae23508f9203c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  speed: 1
+  jumpStrength: 500
+--- !u!114 &114827267399860724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507055351098440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
 --- !u!135 &135017689532115080
 SphereCollider:
   m_ObjectHideFlags: 1

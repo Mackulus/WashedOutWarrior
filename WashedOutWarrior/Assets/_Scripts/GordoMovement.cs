@@ -10,7 +10,7 @@ public class GordoMovement : MonoBehaviour {
 	private bool facingLeft = true;
 	Animator anim;
 	private bool isWalking = false;
-	//bool isGrounded;
+	bool isGrounded = false;
 	bool isJumping = false;
 
 	void Start() {
@@ -58,12 +58,11 @@ public class GordoMovement : MonoBehaviour {
 	}
 
 	void GordoJump() {
-        if (!isJumping) {
-			isJumping = true;
+        if (isGrounded && !isJumping) {
+            isJumping = true;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 		    anim.SetTrigger("Jump_01");
 		    Invoke("GordoJumpForce", 0.25f);
-            //isGrounded = false;
 		    Invoke("TurnJumpOff", 1.22f);
         }
 	}
@@ -78,10 +77,23 @@ public class GordoMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         print(collision.collider.tag);
+        if (collision.collider.CompareTag("Ground")) {
+            isGrounded = true;
+        }
+        if (collision.collider.CompareTag("Enemy")) {
+            isGrounded = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.collider.CompareTag("Ground")) {
+            isGrounded = false;
+        }
+        if (collision.collider.CompareTag("Enemy")) {
+            isGrounded = false;
+        }
     }
 
-	void GordoRaycast()
-	{
+    void GordoRaycast() {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
 		//print(hit.collider.tag);
 		if (hit != null && hit.collider != null)
