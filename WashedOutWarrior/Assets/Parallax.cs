@@ -48,6 +48,5 @@ public class Parallax : MonoBehaviour {
 
 		// set the previousCamPos to the camera's position at the end of the frame
 		previousCamPos = cam.position;
-		print(previousCamPos);
 	}
 }

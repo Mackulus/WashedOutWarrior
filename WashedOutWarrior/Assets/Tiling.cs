@@ -47,7 +47,6 @@ public class Tiling : MonoBehaviour {
 			}
 			else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
 			{
-				print(this + " needs a buddy");
 				MakeNewBuddy (-1);
 				hasALeftBuddy = true;
 			}
