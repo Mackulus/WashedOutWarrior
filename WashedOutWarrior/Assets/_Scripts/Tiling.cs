@@ -62,11 +62,6 @@ public class Tiling : MonoBehaviour {
 		// instantating our new body and storing him in a variable
 		Transform newBuddy = Instantiate (myTransform, newPosition, myTransform.rotation) as Transform;
 
-		// if not tilable let's reverse the x size og our object to get rid of ugly seams
-		if (reverseScale == true) {
-			newBuddy.localScale = new Vector3 (newBuddy.localScale.x*-1, newBuddy.localScale.y, newBuddy.localScale.z);
-		}
-
 		//This ensures that the newly created buddy can parallax if it needs to
 		if(myTransform.tag == "Parallax")
 		{
@@ -76,6 +71,12 @@ public class Tiling : MonoBehaviour {
 		{
 			newBuddy.parent = myTransform.parent;
 		}
+
+		// if not tilable let's reverse the x size og our object to get rid of ugly seams
+		if (reverseScale == true) {
+			newBuddy.localScale = new Vector3 (newBuddy.localScale.x*-1, 1, 1);
+		}
+
 		if (rightOrLeft > 0) {
 			newBuddy.GetComponent<Tiling>().hasALeftBuddy = true;
 		}
