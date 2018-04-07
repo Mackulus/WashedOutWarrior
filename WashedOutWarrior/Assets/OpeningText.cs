@@ -20,10 +20,16 @@ public class OpeningText : MonoBehaviour {
 	private bool messageShowing = false;
 	private bool transitioning = false;
 	private bool transitionsFinished = false;
+	private Button[] buttons;
 
 	void Start()
 	{
 		startTime = Time.time;
+		buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();
+		for (int i = 0; i < buttons.Length; i++)
+		{
+			buttons[i].gameObject.SetActive(false);
+		}
 	}
 
 
@@ -82,6 +88,7 @@ public class OpeningText : MonoBehaviour {
 			Text[] texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
 			texts[1].GetComponent<TextFadeIn>().enabled = true;
 			texts[2].GetComponent<TextFadeIn>().enabled = true;
+			StartCoroutine(BringInButtons());
 		}
 
 		if (currentTextSlot == 1)
@@ -91,5 +98,14 @@ public class OpeningText : MonoBehaviour {
 
 		fadeIn = true;
 		transitioning = false;
+	}
+
+	public IEnumerator BringInButtons()
+	{
+		yield return new WaitForSeconds(3);
+		for (int i = 0; i < buttons.Length; i++)
+		{
+			buttons[i].gameObject.SetActive(true);
+		}
 	}
 }
