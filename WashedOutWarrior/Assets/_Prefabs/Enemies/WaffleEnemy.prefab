@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 4442273899311258}
   - component: {fileID: 50971389643402154}
   - component: {fileID: 70914680164981736}
+  - component: {fileID: 114865666391322092}
   m_Layer: 0
   m_Name: WaffleEnemy
   m_TagString: Enemy
@@ -123,6 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4763170618228418}
+  - component: {fileID: 114519147072567634}
   m_Layer: 0
   m_Name: Eye (1)
   m_TagString: Untagged
@@ -138,6 +140,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4013993025718616}
+  - component: {fileID: 114300161141096316}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -511,7 +514,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &70914680164981736
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -527,6 +530,44 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.34, y: 0.4}
   m_Direction: 0
+--- !u!114 &114300161141096316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725823813406862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
+--- !u!114 &114519147072567634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582216484690706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ac7d2da10d1964892a8988b9e04fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
+--- !u!114 &114865666391322092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325086268015252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18db6cb2bc97faa46ae23508f9203c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  speed: 1
+  jumpStrength: 500
 --- !u!135 &135140756084623552
 SphereCollider:
   m_ObjectHideFlags: 1
