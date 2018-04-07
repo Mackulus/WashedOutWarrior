@@ -22,66 +22,53 @@ public class OpeningText : MonoBehaviour {
 	private bool transitionsFinished = false;
 	private Button[] buttons;
 
-	void Start()
-	{
+	void Start() {
 		startTime = Time.time;
 		buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();
-		for (int i = 0; i < buttons.Length; i++)
-		{
+		for (int i = 0; i < buttons.Length; i++) {
 			buttons[i].gameObject.SetActive(false);
 		}
 	}
 
 
-	void Update()
-	{
-		if (!transitioning && !transitionsFinished)
-		{
+	void Update() {
+		if (!transitioning && !transitionsFinished) {
 			transitioning = true;
-			if (fadeIn)
-			{
+			if (fadeIn) {
 				StartCoroutine(FadeTextToFullAlpha(1f, GetComponent<Text>()));
 			}
-			else
-			{
+			else {
 				StartCoroutine(FadeTextToZeroAlpha(1f, GetComponent<Text>()));
 			}
 		}
 	}
 		
-	public IEnumerator FadeTextToFullAlpha(float t, Text i)
-	{
+	public IEnumerator FadeTextToFullAlpha(float t, Text i) {
 		i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
-		while (i.color.a < 1.0f)
-		{
+		while (i.color.a < 1.0f) {
 			i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
 			yield return null;
 		}
 		StartCoroutine(WaitAndShowText());
 	}
 
-	public IEnumerator WaitAndShowText()
-	{
+	public IEnumerator WaitAndShowText() {
 		yield return new WaitForSeconds(2);
 		fadeIn = false;
 		transitioning = false;
 	}
 
-	public IEnumerator FadeTextToZeroAlpha(float t, Text i)
-	{
+	public IEnumerator FadeTextToZeroAlpha(float t, Text i) {
 		i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
-		while (i.color.a > 0.0f)
-		{
+		while (i.color.a > 0.0f) {
 			i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
 			yield return null;
 		}
-		if (currentTextSlot < strings.Length - 1)
-		{
+		if (currentTextSlot < strings.Length - 1) {
 			currentTextSlot++;
 			i.text = strings[currentTextSlot];
 		}
-		else
-		{
+		else {
 			transitionsFinished = true;
 			chatbubble.GetComponent<FadeIn>().ResetStart();
 			chatbubble.GetComponent<FadeIn>().fadeIn = false;
@@ -91,8 +78,7 @@ public class OpeningText : MonoBehaviour {
 			StartCoroutine(BringInButtons());
 		}
 
-		if (currentTextSlot == 1)
-		{
+		if (currentTextSlot == 1) {
 			GameObject.Find("MainMenuBackground").GetComponent<FadeIn>().enabled = true;
 		}
 
@@ -100,8 +86,7 @@ public class OpeningText : MonoBehaviour {
 		transitioning = false;
 	}
 
-	public IEnumerator BringInButtons()
-	{
+	public IEnumerator BringInButtons() {
 		yield return new WaitForSeconds(3);
 		for (int i = 0; i < buttons.Length; i++)
 		{
