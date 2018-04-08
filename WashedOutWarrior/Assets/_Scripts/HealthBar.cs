@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class HealthBar : MonoBehaviour {
 	public int maxHealth = 20;
 	public int damage = 0;
+	public List<Listener> deathListeners = new List<Listener>();
 
 	public Sprite[] spriteIcons;
 
@@ -22,32 +24,34 @@ public class HealthBar : MonoBehaviour {
 			tempGO.transform.localScale = tempScale;
 			healthBar[ix] = tempGO;
 		}
+	}
 
-		//OnDamage(10);
+	private void Update() {
+		if (damage >= maxHealth) {
+			foreach(Listener l in deathListeners) {
+				l.OnHear();
+			}
+		}
 	}
 
 	public void OnDamage(int d = 1) {
-		if (d > 0) {
-			for (int i = 0; i < healthBar.Length && i < d && damage <= maxHealth; i++) {
+		if (d > 0 && damage < maxHealth) {
+			for (int i = 0; i < d && damage/2 < healthBar.Length; i++) {
 				damage++;
 				if (damage % 2 == 1) {
 					healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = spriteIcons[1];
 				}
-				else {
+				else if (damage / 2 > 0) {
 					healthBar[(damage / 2) - 1].GetComponent<SpriteRenderer>().sprite = spriteIcons[2];
 				}
-			}
-			if (damage > maxHealth) {
-				damage = maxHealth;
-				//Death();
-				return;
 			}
 		}
 		else if (d < 0 && damage > 0) {
 			d = Mathf.Abs(d);
 			
-			for (int i = d; i >= 0 && damage >= 0; i--) {
+			for (int i = d; i >= 0 && damage/2 >= 0; i--) {
 				damage--;
+				//Triggers an out of index error on rare occasion, unsure why
 				healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = damage % 2 == 1 ? spriteIcons[1] : spriteIcons[0];
 			}
 			if (damage < 0) damage = 0;
