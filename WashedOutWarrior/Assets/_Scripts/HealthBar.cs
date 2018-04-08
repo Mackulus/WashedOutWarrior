@@ -23,20 +23,34 @@ public class HealthBar : MonoBehaviour {
 			healthBar[ix] = tempGO;
 		}
 
-		//OnDamage();
+		//OnDamage(10);
 	}
 
 	public void OnDamage(int d = 1) {
-		damage += d;
-		if (damage > maxHealth) {
-			//Death();
-			return;
+		if (d > 0) {
+			for (int i = 0; i < healthBar.Length && i < d && damage <= maxHealth; i++) {
+				damage++;
+				if (damage % 2 == 1) {
+					healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = spriteIcons[1];
+				}
+				else {
+					healthBar[(damage / 2) - 1].GetComponent<SpriteRenderer>().sprite = spriteIcons[2];
+				}
+			}
+			if (damage > maxHealth) {
+				damage = maxHealth;
+				//Death();
+				return;
+			}
 		}
-		if (damage % 2 == 1) {
-			healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = spriteIcons[1];
-		}
-		else {
-			healthBar[(damage / 2) - 1].GetComponent<SpriteRenderer>().sprite = spriteIcons[2];
+		else if (d < 0 && damage > 0) {
+			d = Mathf.Abs(d);
+			
+			for (int i = d; i >= 0 && damage >= 0; i--) {
+				damage--;
+				healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = damage % 2 == 1 ? spriteIcons[1] : spriteIcons[0];
+			}
+			if (damage < 0) damage = 0;
 		}
 	}
 }

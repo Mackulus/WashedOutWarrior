@@ -19,8 +19,12 @@ public class PlayerController : MonoBehaviour {
 		if (collision.collider.CompareTag("Enemy")) {
 			healthBar.OnDamage();
 		}
+		else if (collision.collider.CompareTag("HealthPickup")) {
+			collision.collider.gameObject.SetActive(false);
+			healthBar.OnDamage(-10);
+		}
 		/*
-		if (collision.collider.CompareTag("Boss")) {
+		else if (collision.collider.CompareTag("Boss")) {
 			healthBar.OnDamage(2);
 		}*/
 	}
