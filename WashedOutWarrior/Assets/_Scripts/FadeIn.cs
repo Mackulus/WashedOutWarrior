@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class FadeIn : MonoBehaviour {
 	public float duration = 5.0f;
 	private float startTime;
 	public SpriteRenderer sprite;
+	public Image image;
 	void Start() {
 		startTime = Time.time;
 	}
@@ -17,11 +19,25 @@ public class FadeIn : MonoBehaviour {
 		float t = (Time.time - startTime) / duration;
 		if (fadeIn)
 		{
-		sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(minimum, maximum, t));    
+			if (image == null)
+			{
+				sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(minimum, maximum, t)); 
+			}
+			else
+			{
+				image.color = new Color(1f,1f,1f,Mathf.SmoothStep(minimum, maximum, t));	
+			}
 		}
 		else
 		{
-			sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(maximum, minimum, t));
+			if (image == null)
+			{
+				sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(maximum, minimum, t));
+			}
+			else
+			{
+				image.color = new Color(1f,1f,1f,Mathf.SmoothStep(maximum, minimum, t));
+			}
 		}
 	}
 

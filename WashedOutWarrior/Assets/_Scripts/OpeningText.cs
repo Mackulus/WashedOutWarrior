@@ -73,8 +73,8 @@ public class OpeningText : MonoBehaviour {
 			chatbubble.GetComponent<FadeIn>().ResetStart();
 			chatbubble.GetComponent<FadeIn>().fadeIn = false;
 			Text[] texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
+			texts[0].GetComponent<TextFadeIn>().enabled = true;
 			texts[1].GetComponent<TextFadeIn>().enabled = true;
-			texts[2].GetComponent<TextFadeIn>().enabled = true;
 			StartCoroutine(BringInButtons());
 		}
 
@@ -88,6 +88,7 @@ public class OpeningText : MonoBehaviour {
 
 	public IEnumerator BringInButtons() {
 		yield return new WaitForSeconds(3);
+		chatbubble.SetActive(false);
 		for (int i = 0; i < buttons.Length; i++)
 		{
 			buttons[i].gameObject.SetActive(true);
