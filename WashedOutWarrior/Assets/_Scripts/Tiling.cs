@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 [RequireComponent (typeof(SpriteRenderer))]
 
 public class Tiling : MonoBehaviour {
-
 	public float offsetX = 2f;			// the offset so that we don't get any weird errors
 
 	// these are used for checking if we need to instantiate stuff
@@ -42,13 +39,11 @@ public class Tiling : MonoBehaviour {
 			float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth/2) + camHorizontalExtend;
 
 			// checking if we can see the edge of the element and then calling MakeNewBuddy if we can
-			if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false)
-			{
+			if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false) {
 				MakeNewBuddy (1);
 				hasARightBuddy = true;
 			}
-			else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
-			{
+			else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false) {
 				MakeNewBuddy (-1);
 				hasALeftBuddy = true;
 			}
@@ -63,16 +58,14 @@ public class Tiling : MonoBehaviour {
 		Transform newBuddy = Instantiate (myTransform, newPosition, myTransform.rotation) as Transform;
 
 		//This ensures that the newly created buddy can parallax if it needs to
-		if(myTransform.tag == "Parallax")
-		{
+		if(myTransform.tag == "Parallax") {
 			newBuddy.parent = myTransform;
 		}
-		else
-		{
+		else {
 			newBuddy.parent = myTransform.parent;
 		}
 
-		// if not tilable let's reverse the x size og our object to get rid of ugly seams
+		// if not tilable let's reverse the x size of our object to get rid of ugly seams
 		if (reverseScale == true) {
 			newBuddy.localScale = new Vector3 (newBuddy.localScale.x*-1, 1, 1);
 		}

@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 //code for fading here https://forum.unity.com/threads/fading-in-out-gui-text-with-c-solved.380822/
 public class OpeningText : MonoBehaviour {
-
 	public GameObject chatbubble;
-	private bool transitionFinished = false;
+	//private bool transitionFinished = false;
 	private string[] strings = {
 		"Doc says I'm sick...",
 		"Says I can't eat bad food anymore...",
@@ -15,15 +14,15 @@ public class OpeningText : MonoBehaviour {
 		"And become..."
 	};
 	private int currentTextSlot = 0;
-	private float startTime;
+	//private float startTime;
 	private bool fadeIn = true;
-	private bool messageShowing = false;
+	//private bool messageShowing = false;
 	private bool transitioning = false;
 	private bool transitionsFinished = false;
 	private Button[] buttons;
 
 	void Start() {
-		startTime = Time.time;
+		//startTime = Time.time;
 		buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();
 		for (int i = 0; i < buttons.Length; i++) {
 			buttons[i].gameObject.SetActive(false);

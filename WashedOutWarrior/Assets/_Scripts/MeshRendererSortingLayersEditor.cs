@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 [CustomEditor(typeof(MeshRenderer))]
-public class MeshRendererSortingLayersEditor : Editor
-{
-
-	public override void OnInspectorGUI()
-	{
+public class MeshRendererSortingLayersEditor : Editor {
+	public override void OnInspectorGUI() {
 		base.OnInspectorGUI();
 
 		MeshRenderer renderer = target as MeshRenderer;
@@ -27,6 +23,5 @@ public class MeshRendererSortingLayersEditor : Editor
 			renderer.sortingOrder = order;
 		}
 		EditorGUILayout.EndHorizontal();
-
 	}
 }

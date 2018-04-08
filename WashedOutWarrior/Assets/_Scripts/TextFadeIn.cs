@@ -11,23 +11,22 @@ public class TextFadeIn : MonoBehaviour {
 	public float duration = 5.0f;
 	private float startTime;
 	public Text text;
+
 	void Start() {
 		startTime = Time.time;
 	}
+
 	void Update() {
 		float t = (Time.time - startTime) / duration;
-		if (fadeIn)
-		{
+		if (fadeIn) {
 			text.color = new Color(text.color.r,text.color.g,text.color.b,Mathf.SmoothStep(minimum, maximum, t));    
 		}
-		else
-		{
+		else {
 			text.color = new Color(text.color.r,text.color.g,text.color.b,Mathf.SmoothStep(maximum, minimum, t));
 		}
 	}
 
-	public void ResetStart()
-	{
+	public void ResetStart() {
 		startTime = Time.time;
 	}
 }

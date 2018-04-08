@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GetGordoOffScreen : MonoBehaviour {
-
 	private Animator anim;
-	private bool play = false;
+	//private bool play = false;
 	SceneFader fadeScr;
 
 	// Use this for initialization

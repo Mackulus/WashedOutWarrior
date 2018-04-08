@@ -3,49 +3,40 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SceneFader : MonoBehaviour
-{
+public class SceneFader : MonoBehaviour {
 	public Image FadeImg;
 	public float fadeSpeed = 1.5f;
 	public bool sceneStarting = true;
-
-
-	void Awake()
-	{
+	
+	void Awake() {
 		FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
 	}
 
-	void Update()
-	{
+	void Update() {
 		// If the scene is starting...
-		if (sceneStarting)
+		if (sceneStarting) {
 			// ... call the StartScene function.
 			StartScene();
+		}
 	}
 
-
-	void FadeToClear()
-	{
+	void FadeToClear() {
 		// Lerp the colour of the image between itself and transparent.
 		FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, fadeSpeed * Time.deltaTime);
 	}
 
-
-	void FadeToBlack()
-	{
+	void FadeToBlack() {
 		// Lerp the colour of the image between itself and black.
 		FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
 	}
 
 
-	void StartScene()
-	{
+	void StartScene() {
 		// Fade the texture to clear.
 		FadeToClear();
 
 		// If the texture is almost clear...
-		if (FadeImg.color.a <= 0.05f)
-		{
+		if (FadeImg.color.a <= 0.05f) {
 			// ... set the colour to clear and disable the RawImage.
 			FadeImg.color = Color.clear;
 			FadeImg.enabled = false;
@@ -55,32 +46,26 @@ public class SceneFader : MonoBehaviour
 		}
 	}
 
-
-	public IEnumerator EndSceneRoutine(string scene)
-	{
+	public IEnumerator EndSceneRoutine(string scene) {
 		// Make sure the RawImage is enabled.
 		FadeImg.enabled = true;
-		do
-		{
+		do {
 			// Start fading towards black.
 			FadeToBlack();
 
 			// If the screen is almost black...
-			if (FadeImg.color.a >= 0.95f)
-			{
+			if (FadeImg.color.a >= 0.95f) {
 				// ... reload the level
 				SceneManager.LoadScene(scene);
 				yield break;
 			}
-			else
-			{
+			else {
 				yield return null;
 			}
 		} while (true);
 	}
 
-	public void EndScene(string scene)
-	{
+	public void EndScene(string scene) {
 		sceneStarting = false;
 		StartCoroutine("EndSceneRoutine", scene);
 	}
