@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Weapon
   - Parallax
+  - PickUp
   layers:
   - Default
   - TransparentFX
