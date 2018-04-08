@@ -8,6 +8,7 @@ public class CopyTransform : MonoBehaviour {
 
 	void Update () {
         transform.position = target.transform.position + posOffset;
-        transform.rotation = target.transform.rotation * Quaternion.Euler(rotOffset);
+		transform.rotation = target.transform.rotation * Quaternion.Euler(rotOffset);
+		transform.localScale = target.transform.localScale;
 	}
 }
