@@ -10,6 +10,7 @@ TagManager:
   - Weapon
   - Parallax
   - PickUp
+  - HealthPickup
   layers:
   - Default
   - TransparentFX
