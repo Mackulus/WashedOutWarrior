@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GordoMovement : MonoBehaviour {
-	public float gordoSpeed;
-	public float gordoJumpPower;
-	private float moveX, moveY;
+	public float gordoSpeed = 10f;
+	public float gordoJumpPower = 10000f;
+	private float moveX = 0f, moveY = 0f;
 	private bool facingLeft = true;
-	Animator anim;
+	Animator anim = null;
 	private bool isWalking = false;
 	bool isGrounded = false;
 	bool isJumping = false;

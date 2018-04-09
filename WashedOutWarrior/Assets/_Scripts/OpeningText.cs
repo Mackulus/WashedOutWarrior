@@ -19,7 +19,7 @@ public class OpeningText : MonoBehaviour {
 	//private bool messageShowing = false;
 	private bool transitioning = false;
 	private bool transitionsFinished = false;
-	private Button[] buttons;
+	private Button[] buttons = null;
 
 	void Start() {
 		//startTime = Time.time;

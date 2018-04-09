@@ -2,7 +2,7 @@
 
 public class FollowCam : MonoBehaviour {
     public GameObject target;
-	public Vector3 offset;
+	public Vector3 offset = Vector3.zero;
 
 	private void FixedUpdate() {
 		this.transform.position = target.transform.position + offset;

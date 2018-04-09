@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : Listener {
 	public HealthBar healthBar;
-	public float maxWeaponAngle = 180f;
-	private float curWeaponAngle = 0f;
 	private bool isSwinging = false;
 
 	public GordoMovement gordo;

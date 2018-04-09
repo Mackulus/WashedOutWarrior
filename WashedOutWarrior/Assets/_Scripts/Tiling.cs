@@ -12,12 +12,10 @@ public class Tiling : MonoBehaviour {
 	public bool reverseScale = false;	// used if the object is not tilable
 
 	private float spriteWidth = 0f;		// the width of our element
-	private Camera cam;
-	private Transform myTransform;
+	private Camera cam = null;
 
 	void Awake () {
 		cam = Camera.main;
-		myTransform = transform;
 	}
 
 	// Use this for initialization
@@ -35,8 +33,8 @@ public class Tiling : MonoBehaviour {
 			float camHorizontalExtend = cam.orthographicSize * Screen.width/Screen.height;
 
 			// calculate the x position where the camera can see the edge of the sprite (element)
-			float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth/2) - camHorizontalExtend;
-			float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth/2) + camHorizontalExtend;
+			float edgeVisiblePositionRight = (transform.position.x + spriteWidth/2) - camHorizontalExtend;
+			float edgeVisiblePositionLeft = (transform.position.x - spriteWidth/2) + camHorizontalExtend;
 
 			// checking if we can see the edge of the element and then calling MakeNewBuddy if we can
 			if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false) {
@@ -53,16 +51,16 @@ public class Tiling : MonoBehaviour {
 	// a function that creates a buddy on the side required
 	void MakeNewBuddy (int rightOrLeft) {
 		// calculating the new position for our new buddy
-		Vector3 newPosition = new Vector3 (myTransform.position.x + spriteWidth * rightOrLeft, myTransform.position.y, myTransform.position.z);
+		Vector3 newPosition = new Vector3 (transform.position.x + spriteWidth * rightOrLeft, transform.position.y, transform.position.z);
 		// instantating our new body and storing him in a variable
-		Transform newBuddy = Instantiate (myTransform, newPosition, myTransform.rotation) as Transform;
+		Transform newBuddy = Instantiate (transform, newPosition, transform.rotation) as Transform;
 
 		//This ensures that the newly created buddy can parallax if it needs to
-		if(myTransform.tag == "Parallax") {
-			newBuddy.parent = myTransform;
+		if(transform.tag == "Parallax") {
+			newBuddy.parent = transform;
 		}
 		else {
-			newBuddy.parent = myTransform.parent;
+			newBuddy.parent = transform.parent;
 		}
 
 		// if not tilable let's reverse the x size of our object to get rid of ugly seams

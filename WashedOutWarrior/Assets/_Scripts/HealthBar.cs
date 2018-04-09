@@ -6,9 +6,9 @@ public class HealthBar : MonoBehaviour {
 	public int damage = 0;
 	public List<Listener> deathListeners = new List<Listener>();
 
-	public Sprite[] spriteIcons;
+	public Sprite[] spriteIcons = null;
 
-	private GameObject[] healthBar;
+	private GameObject[] healthBar = null;
 
 	// Use this for initialization
 	void Start () {
