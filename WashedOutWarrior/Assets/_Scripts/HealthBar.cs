@@ -29,7 +29,7 @@ public class HealthBar : MonoBehaviour {
 	private void Update() {
 		if (damage >= maxHealth) {
 			foreach(Listener l in deathListeners) {
-				l.OnHear();
+				l.OnHear(gameObject);
 			}
 		}
 	}

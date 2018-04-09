@@ -83,7 +83,7 @@ public class PlayerController : Listener {
 		return gordo.transform.localScale.x > 0;
 	}
 
-	override public void OnHear() {
+	override public void OnHear(GameObject g) {
 
 	}
 }

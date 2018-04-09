@@ -112,7 +112,7 @@ public class AI : Listener {
     }
 
 
-	override public void OnHear() {
+	override public void OnHear(GameObject g) {
 		gameObject.SetActive(false);
 	}
 }

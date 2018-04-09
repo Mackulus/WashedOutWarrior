@@ -723,6 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201489754}
   - component: {fileID: 201489755}
+  - component: {fileID: 201489756}
   m_Layer: 0
   m_Name: Camera Mount
   m_TagString: Untagged
@@ -758,6 +759,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 603380332}
   offset: {x: 0, y: 0, z: -50}
+--- !u!114 &201489756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201489753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031587a55d5c0894a94445b59641a4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPlayer: {fileID: 1075622766}
+  healthBarBoss: []
+  defeatAllBosses: 0
 --- !u!1001 &214523133
 Prefab:
   m_ObjectHideFlags: 0
@@ -1300,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5305f7fbef447420e83fd9d98c6febad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gordoSpeed: 10
+  gordoSpeed: 20
   gordoJumpPower: 20000
 --- !u!50 &603380334
 Rigidbody2D:
