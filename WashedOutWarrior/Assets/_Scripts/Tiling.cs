@@ -58,12 +58,12 @@ public class Tiling : MonoBehaviour {
 		Transform newBuddy = Instantiate (myTransform, newPosition, myTransform.rotation) as Transform;
 
 		//This ensures that the newly created buddy can parallax if it needs to
-		if(myTransform.tag == "Parallax") {
-			newBuddy.parent = myTransform;
-		}
-		else {
+		//if(myTransform.tag == "Parallax") {
+			//newBuddy.parent = myTransform;
+		//}
+		//else {
 			newBuddy.parent = myTransform.parent;
-		}
+		//}
 
 		// if not tilable let's reverse the x size of our object to get rid of ugly seams
 		if (reverseScale == true) {

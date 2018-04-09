@@ -6,7 +6,7 @@ public class GordoMovement : MonoBehaviour {
 	public float gordoSpeed;
 	public float gordoJumpPower;
 	private float moveX, moveY;
-	private bool facingLeft = true;
+	public bool facingLeft = true;
 	Animator anim;
 	private bool isWalking = false;
 	bool isGrounded = false;
