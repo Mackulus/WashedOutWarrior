@@ -17,25 +17,32 @@ public class FadeIn : MonoBehaviour {
 	}
 	void Update() {
 		float t = (Time.time - startTime) / duration;
-		if (fadeIn) {
-			if (image == null) {
+		if (fadeIn)
+		{
+			if (image == null)
+			{
 				sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(minimum, maximum, t)); 
 			}
-			else {
+			else
+			{
 				image.color = new Color(1f,1f,1f,Mathf.SmoothStep(minimum, maximum, t));	
 			}
 		}
-		else {
-			if (image == null) {
+		else
+		{
+			if (image == null)
+			{
 				sprite.color = new Color(1f,1f,1f,Mathf.SmoothStep(maximum, minimum, t));
 			}
-			else {
+			else
+			{
 				image.color = new Color(1f,1f,1f,Mathf.SmoothStep(maximum, minimum, t));
 			}
 		}
 	}
 
-	public void ResetStart() {
+	public void ResetStart()
+	{
 		startTime = Time.time;
 	}
 }

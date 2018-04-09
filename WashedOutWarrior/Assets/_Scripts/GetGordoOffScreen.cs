@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class GetGordoOffScreen : MonoBehaviour {
-	private Animator anim = null;
+	private Animator anim;
 	//private bool play = false;
 	SceneFader fadeScr;
 

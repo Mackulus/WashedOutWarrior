@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelEnd : Listener {
-	public HealthBar healthBarPlayer;
-	public List<HealthBar> healthBarBoss;
+	public HealthBar healthBarPlayer = null;
+	public List<HealthBar> healthBarBoss = null;
 	public bool defeatAllBosses = false;
 	private List<bool> defeatedBosses = null;
 

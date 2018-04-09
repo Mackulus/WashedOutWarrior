@@ -2,7 +2,7 @@
 
 public class CopyTransform : MonoBehaviour {
     public GameObject target;
-	public Vector3 posOffset = Vector3.zero, rotOffset = Vector3.zero;
+	public Vector3 posOffset, rotOffset;
 
 	void Update () {
         transform.position = target.transform.position + posOffset;
