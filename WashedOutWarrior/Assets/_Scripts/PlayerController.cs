@@ -11,8 +11,7 @@ public class PlayerController : Listener {
 	public GordoMovement gordo;
 	public CopyTransform weapon;
 
-	// Use this for initialization
-	void Start () {
+	private void Awake() {
 		if (healthBar != null) {
 			healthBar.deathListeners.Add(this);
 		}
