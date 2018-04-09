@@ -11,6 +11,7 @@ TagManager:
   - Parallax
   - PickUp
   - HealthPickup
+  - Boss
   layers:
   - Default
   - TransparentFX

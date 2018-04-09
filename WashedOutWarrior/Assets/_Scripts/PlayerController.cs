@@ -44,10 +44,9 @@ public class PlayerController : Listener {
 			collision.collider.gameObject.SetActive(false);
 			healthBar.OnDamage(-10);
 		}
-		/*
 		else if (collision.collider.CompareTag("Boss")) {
 			healthBar.OnDamage(2);
-		}*/
+		}
 	}
 
 	public IEnumerator SwingWeapon() {
@@ -55,7 +54,7 @@ public class PlayerController : Listener {
 		weapon.transform.GetChild(0).tag = "Weapon";
 		//print("SwingWeapon");
 
-		int nTimes = 20;
+		int nTimes = 10;
 		float startOffset, endOffset;
 		if (IsFacingLeft()) {
 			//Swing in a 140 degree left-facing arc
