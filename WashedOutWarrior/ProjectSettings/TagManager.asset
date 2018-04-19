@@ -12,6 +12,7 @@ TagManager:
   - PickUp
   - HealthPickup
   - Boss
+  - Bullet
   layers:
   - Default
   - TransparentFX

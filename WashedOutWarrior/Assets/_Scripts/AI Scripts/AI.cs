@@ -95,6 +95,11 @@ public class AI : Listener {
 				InvokeRepeating("JumpRight", 2.5f, 5f);
 			}
 		}
+		else if (collision.collider.CompareTag("Bullet"))
+		{
+			healthBar.OnDamage();
+			Destroy(collision.collider.gameObject);
+		}
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground")) {

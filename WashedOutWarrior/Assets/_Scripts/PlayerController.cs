@@ -46,6 +46,10 @@ public class PlayerController : Listener {
 		else if (collision.collider.CompareTag("Boss")) {
 			healthBar.OnDamage(2);
 		}
+		else if (collision.collider.CompareTag("Bullet")) {
+			healthBar.OnDamage();
+			Destroy(collision.collider.gameObject);
+		}
 	}
 
 	public IEnumerator SwingWeapon() {
