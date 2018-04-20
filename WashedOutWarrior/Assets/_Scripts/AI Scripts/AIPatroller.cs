@@ -20,7 +20,6 @@ public class AIPatroller:Listener {
 	// Update is called once per frame
 	void Update () {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0));
-		print(hit.distance);
 		if (hit.collider != null && hit.distance < 23f)
 		{
 			if(hit.collider.tag != "Player")
@@ -67,7 +66,6 @@ public class AIPatroller:Listener {
 	void Fire()
 	{
 		Transform parent = (xMoveDirection > 0) ? transform.Find("BulletSpawnRight") : transform.Find("BulletSpawnLeft");
-		print(parent.name);
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
 		if (parent.name == "BulletSpawnRight")

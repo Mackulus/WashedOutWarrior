@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Listener {
 	public HealthBar healthBar;
+	public GameObject[] weapons;
 	public float maxWeaponAngle = 180f;
 	private float curWeaponAngle = 0f;
 	private bool isSwinging = false;
@@ -22,6 +24,28 @@ public class PlayerController : Listener {
 		if (Input.GetKeyDown(KeyCode.Z) && !isSwinging) {
 			StartCoroutine(SwingWeapon());
 		}
+		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			ChangeWeapon(Int32.Parse(Input.inputString) - 1);
+		}
+	}
+
+	private void ChangeWeapon(int weaponSelected)
+	{
+		Vector3 localPosition = new Vector3();
+		Quaternion localRotation = new Quaternion();
+		Vector3 localScale = new Vector3();
+		foreach (Transform child in GameObject.Find("Weapon").transform){
+			localPosition = child.localPosition;
+			localRotation = child.localRotation;
+			localScale = child.localScale;
+			GameObject.Destroy(child.gameObject);
+		}
+		GameObject weapon = Instantiate(weapons[weaponSelected], GameObject.Find("Weapon").transform); 
+		weapon.transform.localPosition = localPosition;
+		weapon.transform.localRotation = localRotation;
+		weapon.transform.localScale = localScale;
+
 	}
 
 	private void FixedUpdate() {
