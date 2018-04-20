@@ -13,7 +13,14 @@ public class LevelEnd : Listener {
 
 	private void Awake() {
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Boss")) {
-			healthBarBoss.Add(g.GetComponent<AI>().healthBar);
+			if (g.name == "IceCreamBoss")
+			{
+				healthBarBoss.Add(g.GetComponent<AIPopsicleBoss>().healthBar);
+			}
+			else
+			{
+				healthBarBoss.Add(g.GetComponent<AI>().healthBar);
+			}
 		}
 
 		healthBarBoss.Capacity = healthBarBoss.Count;
