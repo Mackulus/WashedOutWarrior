@@ -19,7 +19,7 @@ public class LevelEnd : Listener {
 			}
 			else
 			{
-				healthBarBoss.Add(g.GetComponent<AI>().healthBar);
+				healthBarBoss.Add(g.GetComponent<AISensors>().healthBar);
 			}
 		}
 

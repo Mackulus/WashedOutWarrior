@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 50228200402071490}
   - component: {fileID: 61351993755790394}
   - component: {fileID: 114251130357692628}
+  - component: {fileID: 114038525286086742}
   m_Layer: 0
   m_Name: BurgerEnemy
   m_TagString: Enemy
@@ -229,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995678778465020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: -12.69, y: 5.95, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4656860373849864}
@@ -540,7 +541,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ef70279e1497b4545949af0484bac1ff, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -570,6 +571,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.36}
   m_EdgeRadius: 0
+--- !u!114 &114038525286086742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995678778465020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 114251130357692628}
+  isTypeJumping: 0
+  speed: 1
+  jumpStrength: 500
 --- !u!114 &114058872798382478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -594,9 +610,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes: []
-  speed: 1
-  jumpStrength: 500
   healthBar: {fileID: 114263075710867344}
+  playerRelPos: {x: 0, y: 0}
+  playerRelPosRaw: {x: 0, y: 0}
+  viewRange: 50
 --- !u!114 &114263075710867344
 MonoBehaviour:
   m_ObjectHideFlags: 1
