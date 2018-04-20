@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 50235262457254380}
   - component: {fileID: 61690748723877192}
   - component: {fileID: 114439350869256046}
+  - component: {fileID: 114352731995263062}
   m_Layer: 0
   m_Name: PizzaEnemy
   m_TagString: Enemy
@@ -600,6 +601,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
+--- !u!114 &114352731995263062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217741732599474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 0}
+  speed: 1
+  jumpStrength: 500
+  isTypeJumping: 0
+  isTypePatroling: 0
 --- !u!114 &114439350869256046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -612,9 +629,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes: []
-  speed: 1
-  jumpStrength: 500
   healthBar: {fileID: 114014431260627458}
+  playerRelPos: {x: 0, y: 0}
+  playerRelPosRaw: {x: 0, y: 0}
+  viewRange: 50
 --- !u!114 &114989405921635574
 MonoBehaviour:
   m_ObjectHideFlags: 1

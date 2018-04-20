@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 50971389643402154}
   - component: {fileID: 70914680164981736}
   - component: {fileID: 114865666391322092}
+  - component: {fileID: 114254186714507148}
   m_Layer: 0
   m_Name: WaffleEnemy
   m_TagString: Enemy
@@ -216,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325086268015252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.2, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4849676288889832}
@@ -273,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809146473580882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.507, y: -0.25, z: -1}
+  m_LocalPosition: {x: -0.12, y: -0.25, z: -1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442273899311258}
@@ -560,6 +561,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.34, y: 0.4}
   m_Direction: 0
+--- !u!114 &114254186714507148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325086268015252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 0}
+  speed: 1
+  jumpStrength: 500
+  isTypeJumping: 0
+  isTypePatroling: 0
 --- !u!114 &114300161141096316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -614,9 +631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes: []
-  speed: 1
-  jumpStrength: 500
   healthBar: {fileID: 114527465872299546}
+  playerRelPos: {x: 0, y: 0}
+  playerRelPosRaw: {x: 0, y: 0}
+  viewRange: 50
 --- !u!135 &135140756084623552
 SphereCollider:
   m_ObjectHideFlags: 1

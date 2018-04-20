@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050472256950376}
   - component: {fileID: 114292306627747300}
+  - component: {fileID: 114744145873603210}
   m_Layer: 0
   m_Name: IceCreamBoss
   m_TagString: Boss
@@ -943,6 +944,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 58049bbb008237e40a0d6c2ec45128d7, type: 3}
   - {fileID: 21300000, guid: 25aaabf97acd24142bb971a335ae242f, type: 3}
   - {fileID: 21300000, guid: c0c8af2f6afb332439ab8ab3fd5b112e, type: 3}
+--- !u!114 &114744145873603210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088990074922388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 0}
+  speed: 1
+  jumpStrength: 500
+  isTypeJumping: 0
+  isTypePatroling: 0
 --- !u!135 &135479888384027432
 SphereCollider:
   m_ObjectHideFlags: 1

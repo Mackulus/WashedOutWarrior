@@ -111,6 +111,6 @@ public class PlayerController : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
-
+		//TODO: add Death screen
 	}
 }

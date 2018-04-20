@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class AIMovement : MonoBehaviour {
 	public AISensors sensor;
-	public bool isTypeJumping = false;
 	public float speed = 1f, jumpStrength = 500f;
+	public bool isTypeJumping = false, isTypePatroling = false;
 	private bool isMoving = false, isGrounded = false;
 
 	// Use this for initialization
 	private void Awake() {
 		sensor = gameObject.GetComponent<AISensors>();
-	}
-
-	private void Start() {
-		
 	}
 
 	// Update is called once per frame
@@ -44,6 +40,9 @@ public class AIMovement : MonoBehaviour {
 		}
 		else if (gameObject.GetComponent<Rigidbody2D>().GetPointVelocity(transform.position).x <= .1f) {
 			isMoving = false;
+		}
+		else {
+
 		}
 	}
 
