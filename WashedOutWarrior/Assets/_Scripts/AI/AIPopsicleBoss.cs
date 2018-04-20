@@ -21,10 +21,24 @@ public class AIPopsicleBoss : Listener {
 		bulletOrigins = GameObject.Find("BulletSpawners").transform.childCount;
 		print("Num origins " + bulletOrigins);
 		rand = new System.Random();
-		InvokeRepeating("Fire", 0.5f, 0.5f);
+		InvokeRepeating("ChooseWhere", 0.2f, 0.2f);
+		InvokeRepeating("FireAll", 10f, 5f);
 	}
 
-	void Fire()
+	void ChooseWhere()
+	{
+		Fire(rand.Next(1, bulletOrigins));
+	}
+
+	void FireAll()
+	{
+		for (int i = 0; i < bulletOrigins; i++)
+		{
+			Fire(i+1);
+		}
+	}
+
+	void Fire(int originPoint)
 	{
 		originPoint = rand.Next(1, bulletOrigins);
 		parent = transform.Find("BulletSpawners").transform.Find("Spot"+originPoint.ToString());
@@ -35,11 +49,23 @@ public class AIPopsicleBoss : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
-		gameObject.SetActive(false);
+		Destroy(this.gameObject);
 	}
 
-	// Update is called once per frame
-	void Update () {
-		
+	private void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.collider.CompareTag("Player")) {
+			healthBar.OnDamage();
+		}
+		else if (collision.collider.CompareTag("BulletRicochet")) {
+			print("Uh oh");
+			healthBar.OnDamage();
+			Destroy(collision.collider.gameObject);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) {
+		if (collision.gameObject.CompareTag("Weapon")) {
+			healthBar.OnDamage();
+		}
 	}
 }

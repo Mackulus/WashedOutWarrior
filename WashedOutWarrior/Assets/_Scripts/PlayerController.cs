@@ -38,13 +38,11 @@ public class PlayerController : Listener {
 		foreach (Transform child in GameObject.Find("Weapon").transform){
 			localPosition = child.localPosition;
 			localRotation = child.localRotation;
-			localScale = child.localScale;
 			GameObject.Destroy(child.gameObject);
 		}
 		GameObject weapon = Instantiate(weapons[weaponSelected], GameObject.Find("Weapon").transform); 
 		weapon.transform.localPosition = localPosition;
 		weapon.transform.localRotation = localRotation;
-		weapon.transform.localScale = localScale;
 
 	}
 

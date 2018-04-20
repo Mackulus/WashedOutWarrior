@@ -42,7 +42,7 @@ public class AISensors : Listener {
 		if (collision.collider.CompareTag("Player")) {
 			healthBar.OnDamage();
 		}
-		else if (collision.collider.CompareTag("Bullet")) {
+		else if (collision.collider.CompareTag("BulletRicochet")) {
 			healthBar.OnDamage();
 			Destroy(collision.collider.gameObject);
 		}

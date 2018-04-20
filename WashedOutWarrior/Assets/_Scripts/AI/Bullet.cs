@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+	private bool hasBeenHit = false;
+
 	// Use this for initialization
 	void Start () {
+		Physics2D.IgnoreLayerCollision(11, 10, true);
+		Physics2D.IgnoreLayerCollision(13, 10, true);
+		Physics2D.IgnoreLayerCollision(11, 11, true);
+		Physics2D.IgnoreLayerCollision(12, 11, true);
 		StartCoroutine(BulletDestroy());
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.name.Contains("Table Spoon")) {
+		if (collision.gameObject.name.Contains("Table Spoon") && !hasBeenHit) {
 			StopAllCoroutines();
-			this.GetComponent<Rigidbody2D>().velocity *= -1;
+			hasBeenHit = true;
+			this.GetComponent<Rigidbody2D>().velocity *= -2;
 			Vector2 localScale = this.transform.localScale;
 			localScale.y *= -1;
 			this.transform.localScale = localScale;
@@ -28,20 +35,6 @@ public class Bullet : MonoBehaviour {
 			(collision.gameObject.CompareTag("BulletRicochet") && this.transform.CompareTag("Bullet")))
 		{
 			Destroy(this.gameObject);
-		}
-		if (collision.gameObject.CompareTag("LollipopWall"))
-		{
-			print("Trying to ignore");
-			Physics2D.IgnoreLayerCollision(11, 10, true);
-			Physics2D.IgnoreLayerCollision(13, 10, true);
-		}
-		if (collision.gameObject.CompareTag("Enemy") && this.transform.CompareTag("Bullet"))
-		{
-			Physics2D.IgnoreLayerCollision(12, 11, true);
-		}
-		if (collision.gameObject.CompareTag("Bullet") && this.transform.CompareTag("Bullet"))
-		{
-			Physics2D.IgnoreLayerCollision(11, 11, true);
 		}
 	}
 
