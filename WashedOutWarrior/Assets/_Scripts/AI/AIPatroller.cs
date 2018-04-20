@@ -10,8 +10,10 @@ public class AIPatroller:Listener {
 	public GameObject projectile;
 	public float bulletImpulse = 20.0f;
 	public bool fired = false;
+	private Transform parent;
 
 	void Start () {
+		parent = transform.Find("BulletSpawn");
 		if (healthBar != null) {
 			healthBar.deathListeners.Add(this);
 		}
@@ -33,7 +35,7 @@ public class AIPatroller:Listener {
 				}
 				else {
 					if (!fired) {
-						FireOne();
+						Fire(xMoveDirection);
 						fired = true;
 						Invoke("ResetFired", 1f);
 					}
@@ -48,7 +50,8 @@ public class AIPatroller:Listener {
 		{
 			if (!fired)
 			{
-				FireBoth();
+				Fire(-1);
+				Fire(1);
 				fired = true;
 				Invoke("ResetFired", 1f);
 			}
@@ -69,22 +72,11 @@ public class AIPatroller:Listener {
 		}
 	}
 
-	void FireOne() {
-		Transform parent = (xMoveDirection > 0) ? transform.Find("BulletSpawnRight") : transform.Find("BulletSpawnLeft");
-		Fire(parent);
-	}
-
-	void FireBoth()
-	{
-		Fire(transform.Find("BulletSpawnRight"));
-		Fire(transform.Find("BulletSpawnLeft"));
-	}
-
-	void Fire(Transform parent)
+	void Fire(int direction)
 	{
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
-		if (parent.name == "BulletSpawnRight") {
+		if (direction == -1 ) {
 			print("In here");
 			Vector2 localScale = bullet.transform.localScale;
 			localScale.y *= -1;
@@ -103,7 +95,7 @@ public class AIPatroller:Listener {
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Bullet"))
+		if (collision.collider.CompareTag("BulletRicochet"))
 		{
 			healthBar.OnDamage();
 			Destroy(collision.collider.gameObject);

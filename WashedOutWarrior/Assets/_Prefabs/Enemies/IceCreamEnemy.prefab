@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33063230964788900}
   - component: {fileID: 135062395457322110}
   - component: {fileID: 23925850550786726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 61807919701015286}
   - component: {fileID: 114779564012117486}
   - component: {fileID: 114430647445435942}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IceCreamEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -56,8 +56,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4786880171262918}
-  m_Layer: 0
-  m_Name: BulletSpawnLeft
+  m_Layer: 12
+  m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4799819739171438}
   - component: {fileID: 114233746761844018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4712377516675658}
   - component: {fileID: 33638854956997898}
   - component: {fileID: 23142289923454562}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: icecream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 33653224982013350}
   - component: {fileID: 136699391543268360}
   - component: {fileID: 23690405064577384}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,23 +123,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4800395006956622}
   - component: {fileID: 114335691182741276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthBarIceCream
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1995660124651404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4745098868891010}
-  m_Layer: 0
-  m_Name: BulletSpawnRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +144,6 @@ Transform:
   - {fileID: 4799819739171438}
   - {fileID: 4800395006956622}
   - {fileID: 4786880171262918}
-  - {fileID: 4745098868891010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,19 +186,6 @@ Transform:
   m_Father: {fileID: 4252222886210502}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.5}
---- !u!4 &4745098868891010
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1995660124651404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4252222886210502}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4786880171262918
 Transform:
   m_ObjectHideFlags: 1
@@ -222,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383645106144098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.276, y: 0, z: 0}
+  m_LocalPosition: {x: 0.002, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4252222886210502}
@@ -460,7 +431,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332439829599498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
   m_Name: 
@@ -482,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
-  xMoveDirection: 1
+  xMoveDirection: 0
   healthBar: {fileID: 114335691182741276}
   projectile: {fileID: 1938107496787132, guid: 696f56304b2194a0cae6e1285e3e6fc0, type: 2}
   bulletImpulse: 20
