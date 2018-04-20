@@ -106,7 +106,7 @@ public class PlayerController : Listener {
 		isSwinging = false;
 	}
 
-	private bool IsFacingLeft() {
+	public bool IsFacingLeft() {
 		return gordo.transform.localScale.x > 0;
 	}
 

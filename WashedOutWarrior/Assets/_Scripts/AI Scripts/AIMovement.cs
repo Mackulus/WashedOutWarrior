@@ -57,7 +57,7 @@ public class AIMovement : MonoBehaviour {
 		if (collision.collider.CompareTag("Ground")) {
 			isGrounded = true;
 		}
-		else if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Weapon")) {
+		else if (collision.collider.CompareTag("Player")) {
 			if (sensor.playerRelPosRaw.x < 0) {
 				Jump(Vector2.left);
 			}
@@ -72,17 +72,6 @@ public class AIMovement : MonoBehaviour {
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground")) {
 			isGrounded = false;
-		}
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (false /*collision.gameObject.CompareTag("Weapon")*/) {
-			if (sensor.playerRelPos.x < 0) {
-				Jump(Vector2.left);
-			}
-			else {
-				Jump(Vector2.right);
-			}
 		}
 	}
 }

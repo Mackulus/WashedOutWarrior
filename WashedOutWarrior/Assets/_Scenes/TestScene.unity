@@ -1653,6 +1653,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1015765631 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1215666658009662, guid: 33d16537ee37d17489ba30391f3c8267,
+    type: 2}
+  m_PrefabInternal: {fileID: 604437298}
+--- !u!114 &1015765632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015765631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c40301ed57afda49b7af65cb80cef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 363600947}
+  knockbackForce: 1500
 --- !u!1 &1027364553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,19 +2964,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 50228200402071490, guid: d305342e88067fb41b08a0a0320143b9,
-        type: 2}
-      propertyPath: m_SleepingMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 114038525286086742, guid: d305342e88067fb41b08a0a0320143b9,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114038525286086742, guid: d305342e88067fb41b08a0a0320143b9,
-        type: 2}
-      propertyPath: speed
+      propertyPath: isTypeJumping
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
