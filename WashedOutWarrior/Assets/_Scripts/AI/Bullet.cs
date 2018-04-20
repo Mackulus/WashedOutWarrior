@@ -18,4 +18,17 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
+	private void OnCollisionEnter2D(Collision2D collision) {
+		print(collision.collider.tag);
+		if (collision.gameObject.CompareTag("Bullet"))
+		{
+			Destroy(this.gameObject);
+		}
+		if (collision.gameObject.CompareTag("LollipopWall"))
+		{
+			print("Trying to ignore");
+			Physics2D.IgnoreLayerCollision(11, 10, true);
+		}
+	}
+
 }

@@ -19,27 +19,39 @@ public class AIPatroller:Listener {
 
 	// Update is called once per frame
 	void Update () {
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0), 23f);
-		if (hit.collider != null) {
-			if(hit.collider.tag != "Player") {
-				if(hit.collider.tag != "Bullet") {
-					gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
-					if (hit.distance < 5f && hit.collider.name != this.name) {
-						FlipEnemy();
+		if (xMoveDirection != 0)
+		{
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0), 23f);
+			if (hit.collider != null) {
+				if(hit.collider.tag != "Player") {
+					if(hit.collider.tag != "Bullet") {
+						gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
+						if (hit.distance < 5f && hit.collider.name != this.name) {
+							FlipEnemy();
+						}
+					}
+				}
+				else {
+					if (!fired) {
+						FireOne();
+						fired = true;
+						Invoke("ResetFired", 1f);
 					}
 				}
 			}
-			else {
-				if (!fired) {
-					Fire();
-					fired = true;
-					Invoke("ResetFired", 1f);
-				}
+			else
+			{
+				gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
 			}
 		}
 		else
 		{
-			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
+			if (!fired)
+			{
+				FireBoth();
+				fired = true;
+				Invoke("ResetFired", 1f);
+			}
 		}
 	}
 
@@ -57,8 +69,19 @@ public class AIPatroller:Listener {
 		}
 	}
 
-	void Fire() {
+	void FireOne() {
 		Transform parent = (xMoveDirection > 0) ? transform.Find("BulletSpawnRight") : transform.Find("BulletSpawnLeft");
+		Fire(parent);
+	}
+
+	void FireBoth()
+	{
+		Fire(transform.Find("BulletSpawnRight"));
+		Fire(transform.Find("BulletSpawnLeft"));
+	}
+
+	void Fire(Transform parent)
+	{
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
 		if (parent.name == "BulletSpawnRight") {
@@ -71,8 +94,6 @@ public class AIPatroller:Listener {
 		else {
 			bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * -bulletImpulse, ForceMode2D.Impulse);
 		}
-
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {

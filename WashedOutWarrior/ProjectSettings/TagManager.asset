@@ -13,6 +13,7 @@ TagManager:
   - HealthPickup
   - Boss
   - Bullet
+  - LollipopWall
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - 
   - Background
   - Player
-  - 
-  - 
+  - LollipopWall
+  - Bullet
   - 
   - 
   - 
