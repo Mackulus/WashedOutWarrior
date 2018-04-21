@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.name.Contains("Table Spoon") && !hasBeenHit) {
+		if (collision.gameObject.name.Contains("Table Spoon") && !hasBeenHit && GameObject.Find("Gordo").GetComponent<PlayerController>().ReturnSwinging() == true) {
 			StopAllCoroutines();
 			hasBeenHit = true;
 			this.GetComponent<Rigidbody2D>().velocity *= -2;
@@ -30,9 +30,9 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		print(collision.collider.tag);
 		if ((collision.gameObject.CompareTag("Bullet") && this.transform.CompareTag("BulletRicochet")) ||
-			(collision.gameObject.CompareTag("BulletRicochet") && this.transform.CompareTag("Bullet")))
+			(collision.gameObject.CompareTag("BulletRicochet") && this.transform.CompareTag("Bullet")) ||
+			collision.gameObject.CompareTag("Ground"))
 		{
 			Destroy(this.gameObject);
 		}

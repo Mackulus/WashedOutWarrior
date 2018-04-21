@@ -67,9 +67,15 @@ public class AIMovement : MonoBehaviour {
 		else if (collision.collider.CompareTag("Bullet")) {
 			Destroy(collision.collider.gameObject);
 		}
+		else if (collision.collider.CompareTag("LollipopWall")){
+			isGrounded = true;
+		}
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground")) {
+			isGrounded = false;
+		}
+		else if (collision.collider.CompareTag("LollipopWall")){
 			isGrounded = false;
 		}
 	}

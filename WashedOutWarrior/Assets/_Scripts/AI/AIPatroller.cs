@@ -77,7 +77,7 @@ public class AIPatroller:Listener {
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
 		if (direction == 1 ) {
-			print("In here");
+			//print("In here");
 			Vector2 localScale = bullet.transform.localScale;
 			localScale.y *= -1;
 			bullet.transform.localScale = localScale;

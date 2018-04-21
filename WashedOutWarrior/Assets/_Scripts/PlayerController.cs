@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Listener {
+
+	public static int weaponInHand = 1;
+	public static bool PickedUpSpoon = false;
+
 	public HealthBar healthBar;
 	public GameObject[] weapons;
 	public float maxWeaponAngle = 180f;
 	private float curWeaponAngle = 0f;
 	private bool isSwinging = false;
+	public bool pickedUpSpoon = false;
 
 	public GordoMovement gordo;
 	public CopyTransform weapon;
@@ -17,6 +22,7 @@ public class PlayerController : Listener {
 		if (healthBar != null) {
 			healthBar.deathListeners.Add(this);
 		}
+		pickedUpSpoon = PickedUpSpoon;
 	}
 	
 	// Update is called once per frame
@@ -26,24 +32,39 @@ public class PlayerController : Listener {
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
 		{
-			ChangeWeapon(Int32.Parse(Input.inputString) - 1);
+			ChangeWeapon(Int32.Parse(Input.inputString));
 		}
+	}
+
+	public bool ReturnSwinging()
+	{
+		return isSwinging;
 	}
 
 	private void ChangeWeapon(int weaponSelected)
 	{
-		Vector3 localPosition = new Vector3();
-		Quaternion localRotation = new Quaternion();
-		Vector3 localScale = new Vector3();
-		foreach (Transform child in GameObject.Find("Weapon").transform){
-			localPosition = child.localPosition;
-			localRotation = child.localRotation;
-			GameObject.Destroy(child.gameObject);
+		print("Selected " + weaponSelected);
+		print("In hand " + weaponInHand);
+		print("Spoon? " + pickedUpSpoon);
+		if (weaponSelected != weaponInHand && ((weaponSelected == 2 && pickedUpSpoon) || weaponSelected != 2))
+		{
+			Vector3 localPosition = new Vector3();
+			Quaternion localRotation = new Quaternion();
+			Vector3 localScale = new Vector3();
+			foreach (Transform child in GameObject.Find("Weapon").transform){
+				localPosition = child.localPosition;
+				localRotation = child.localRotation;
+				GameObject.Destroy(child.gameObject);
+			}
+			GameObject weapon = Instantiate(weapons[weaponSelected-1], GameObject.Find("Weapon").transform); 
+			weapon.transform.localPosition = localPosition;
+			weapon.transform.localRotation = localRotation;
+			weaponInHand = weaponSelected;
 		}
-		GameObject weapon = Instantiate(weapons[weaponSelected], GameObject.Find("Weapon").transform); 
-		weapon.transform.localPosition = localPosition;
-		weapon.transform.localRotation = localRotation;
-
+		else
+		{
+			print("Stopped it");
+		}
 	}
 
 	private void FixedUpdate() {
@@ -71,6 +92,16 @@ public class PlayerController : Listener {
 		else if (collision.collider.CompareTag("Bullet")) {
 			healthBar.OnDamage();
 			Destroy(collision.collider.gameObject);
+		}
+	}
+		
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.name == "Table Spoon") {
+			Destroy(collision.gameObject);
+			GameObject gordo = GameObject.Find("Gordo");
+			gordo.GetComponent<PlayerController>().pickedUpSpoon = true;
+			gordo.GetComponent<PlayerController>().ChangeWeapon(2);
 		}
 	}
 
