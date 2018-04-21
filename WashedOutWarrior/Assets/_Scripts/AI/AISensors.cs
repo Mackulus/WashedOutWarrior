@@ -39,10 +39,10 @@ public class AISensors : Listener {
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Player")) {
+		if (collision.collider.CompareTag("Player") && healthBar != null) {
 			healthBar.OnDamage();
 		}
-		else if (collision.collider.CompareTag("BulletRicochet")) {
+		else if (collision.collider.CompareTag("BulletRicochet") && healthBar != null) {
 			healthBar.OnDamage();
 			Destroy(collision.collider.gameObject);
 		}
@@ -52,7 +52,7 @@ public class AISensors : Listener {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag("Weapon")) {
+		if (collision.gameObject.CompareTag("Weapon") && healthBar != null) {
 			healthBar.OnDamage();
 		}
 	}

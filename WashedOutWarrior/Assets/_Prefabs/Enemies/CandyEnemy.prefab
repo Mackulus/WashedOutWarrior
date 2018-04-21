@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545270523035120}
   - component: {fileID: 114074081435511974}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33843081128875936}
   - component: {fileID: 135017689532115080}
   - component: {fileID: 23197191447472644}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4750121197811854}
   - component: {fileID: 33044213480674308}
   - component: {fileID: 23270339287992094}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: candy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4867066624688926}
   - component: {fileID: 114222361156108022}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthBarCandy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33217922582554428}
   - component: {fileID: 136525837500635464}
   - component: {fileID: 23600152414394202}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 33771255712868938}
   - component: {fileID: 136723181346387298}
   - component: {fileID: 23274526932529404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4761431998318356}
   - component: {fileID: 114827267399860724}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4921750081783830}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 61980662285128866}
   - component: {fileID: 114766870310379334}
   - component: {fileID: 114624848489877430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CandyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 33597790641772548}
   - component: {fileID: 135725046755729908}
   - component: {fileID: 23298462851353234}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -24,17 +24,17 @@ public class AIMovement : MonoBehaviour {
 				if (isTypeJumping) {
 					Jump(new Vector2(-1, 1));
 				}
-				else {
-					Jump(Vector2.left);
-				}
+				//else {
+				//	Jump(Vector2.left);
+				//}
 			}
 			else {
 				if (isTypeJumping) {
 					Jump(Vector2.one);
 				}
-				else {
-					Jump(Vector2.right);
-				}
+				//else {
+				//	Jump(Vector2.right);
+				//}
 			}
 
 		}

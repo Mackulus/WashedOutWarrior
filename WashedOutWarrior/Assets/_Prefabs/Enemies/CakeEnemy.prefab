@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61635591366835292}
   - component: {fileID: 114459245998580714}
   - component: {fileID: 114573393118311972}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CakeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 33255150861851740}
   - component: {fileID: 136830282503393254}
   - component: {fileID: 23365939260293970}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4611294613354720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4861624504352312}
   - component: {fileID: 114533819512833466}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthBarCake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 33625009607337938}
   - component: {fileID: 135629156169154702}
   - component: {fileID: 23290859448233876}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4139194494594758}
   - component: {fileID: 114976862857126430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 33749723595103162}
   - component: {fileID: 136788688348743052}
   - component: {fileID: 23064069476707598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049573657019528}
   - component: {fileID: 114615091437041386}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 33837500459781288}
   - component: {fileID: 135378157373014550}
   - component: {fileID: 23618958374067304}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4738903624434470}
   - component: {fileID: 33982019447007004}
   - component: {fileID: 23564839607479476}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ MonoBehaviour:
   sensor: {fileID: 0}
   speed: 1
   jumpStrength: 500
-  isTypeJumping: 0
+  isTypeJumping: 1
   isTypePatroling: 0
 --- !u!114 &114615091437041386
 MonoBehaviour:
