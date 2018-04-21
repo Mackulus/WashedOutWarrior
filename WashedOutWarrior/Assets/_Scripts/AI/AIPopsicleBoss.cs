@@ -21,7 +21,7 @@ public class AIPopsicleBoss : Listener {
 		bulletOrigins = GameObject.Find("BulletSpawners").transform.childCount;
 		print("Num origins " + bulletOrigins);
 		rand = new System.Random();
-		InvokeRepeating("ChooseWhere", 0.2f, 0.2f);
+		InvokeRepeating("ChooseWhere", 0f, 1f);
 		InvokeRepeating("FireAll", 10f, 5f);
 	}
 
@@ -44,7 +44,7 @@ public class AIPopsicleBoss : Listener {
 		parent = transform.Find("BulletSpawners").transform.Find("Spot"+originPoint.ToString());
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(0,0,0);
-		bullet.transform.localScale = new Vector3(5,5,5);
+		bullet.transform.localScale = new Vector3(10,10,10);
 		bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * -bulletImpulse, ForceMode2D.Impulse);
 	}
 

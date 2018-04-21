@@ -50,9 +50,9 @@ public class AIRanged:MonoBehaviour {
 	}
 
 	void FlipEnemy() {
-		print("Direction : " + xMoveDirection);
+		//print("Direction : " + xMoveDirection);
 		if (xMoveDirection > 0) {
-			print("flipped");
+			//print("flipped");
 			xMoveDirection = -1;
 		}
 		else {

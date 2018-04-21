@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	private bool hasBeenHit = false;
+	private bool hasHitPlayer = false;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,16 @@ public class Bullet : MonoBehaviour {
 		{
 			Destroy(this.gameObject);
 		}
+	}
+
+	public void HitPlayer()
+	{
+		hasHitPlayer = true;
+	}
+
+	public bool HasHitPlayer()
+	{
+		return hasHitPlayer;
 	}
 
 	void DestroySelf()

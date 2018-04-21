@@ -56,8 +56,17 @@ public class PlayerController : Listener {
 			healthBar.OnDamage(2);
 		}
 		else if (collision.collider.CompareTag("Bullet")) {
-			Destroy(collision.collider.gameObject);
-			healthBar.OnDamage();
+			if(collision.gameObject.GetComponent<Bullet>().HasHitPlayer() == false)
+			{
+				print("Hit");
+				collision.gameObject.GetComponent<Bullet>().HitPlayer();
+				Destroy(collision.collider.gameObject);
+				healthBar.OnDamage();
+			}
+			else
+			{
+				print("Weird");
+			}
 		}
 	}
 
