@@ -2396,6 +2396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUpSpoon: 0
+  weapons: []
 --- !u!114 &114332927067496282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2475,8 +2476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5305f7fbef447420e83fd9d98c6febad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gordoSpeed: 10
-  gordoJumpPower: 15000
+  gordoSpeed: 20
+  gordoJumpPower: 20000
   facingLeft: 1
 --- !u!114 &114494412458154320
 MonoBehaviour:
