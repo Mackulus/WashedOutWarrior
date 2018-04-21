@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33468288668943432}
   - component: {fileID: 23060678171999290}
   - component: {fileID: 70654300100914666}
+  - component: {fileID: 114428161642667028}
   m_Layer: 0
   m_Name: Table Spoon
-  m_TagString: Weapon
+  m_TagString: NewWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592939601562774}
-  m_LocalRotation: {x: 0.8088816, y: -0.55466247, z: -0.17599615, w: 0.0841759}
-  m_LocalPosition: {x: -0.96, y: 0.35, z: 1}
-  m_LocalScale: {x: 32, y: 32, z: 32}
+  m_LocalRotation: {x: -0.00570231, y: -0.9807685, z: -0.028988594, w: 0.19292574}
+  m_LocalPosition: {x: -186.77199, y: -10.00304, z: 0.6796206}
+  m_LocalScale: {x: 32.000015, y: 35, z: 32.000015}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 183.386, y: 22.256989, z: 68.212}
+  m_LocalEulerAnglesHint: {x: 180, y: 1, z: 180}
 --- !u!23 &23060678171999290
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -98,3 +99,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0013229309, y: 0.09563288}
   m_Size: {x: 0.043562204, y: 0.20093346}
   m_Direction: 0
+--- !u!114 &114428161642667028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592939601562774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c40301ed57afda49b7af65cb80cef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  knockbackForce: 2000

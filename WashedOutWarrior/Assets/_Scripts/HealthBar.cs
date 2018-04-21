@@ -26,35 +26,32 @@ public class HealthBar : MonoBehaviour {
 		}
 	}
 
-	private void Update() {
+	public void OnDamage(int d = 1) {
+		//print("Took (" + d + ") damage");
+
+		damage += d;
+		UpdateBar();
+
 		if (damage >= maxHealth) {
-			foreach(Listener l in deathListeners) {
+			foreach (Listener l in deathListeners) {
 				l.OnHear(gameObject);
 			}
 		}
 	}
 
-	public void OnDamage(int d = 1) {
-		if (d > 0 && damage < maxHealth) {
-			for (int i = 0; i < d && damage/2 < healthBar.Length; i++) {
-				damage++;
-				if (damage % 2 == 1) {
-					healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = spriteIcons[1];
-				}
-				else if (damage / 2 > 0) {
-					healthBar[(damage / 2) - 1].GetComponent<SpriteRenderer>().sprite = spriteIcons[2];
-				}
+	public void UpdateBar() {
+		for(int ix = 0; ix < healthBar.Length; ix++) {
+			int tempDamage = damage - (2 * ix);
+			if (tempDamage <= 0) {
+				healthBar[ix].GetComponent<SpriteRenderer>().sprite = spriteIcons[0];
 			}
-		}
-		else if (d < 0 && damage > 0) {
-			d = Mathf.Abs(d);
-			
-			for (int i = d; i >= 0 && damage/2 >= 0; i--) {
-				damage--;
-				//Triggers an out of index error on rare occasion, unsure why
-				healthBar[damage / 2].GetComponent<SpriteRenderer>().sprite = damage % 2 == 1 ? spriteIcons[1] : spriteIcons[0];
+			else if (tempDamage == 1) {
+				healthBar[ix].GetComponent<SpriteRenderer>().sprite = spriteIcons[1];
 			}
-			if (damage < 0) damage = 0;
+			else /* tempDamage >= 2 */
+			{
+				healthBar[ix].GetComponent<SpriteRenderer>().sprite = spriteIcons[2];
+			}
 		}
 	}
 }

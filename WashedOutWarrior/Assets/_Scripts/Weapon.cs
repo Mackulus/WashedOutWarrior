@@ -12,8 +12,7 @@ public class Weapon : MonoBehaviour {
 			if (player.IsFacingLeft()) {
 				collision.gameObject.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(-knockbackForce, 1));
 			}
-			else
-			{
+			else {
 				collision.gameObject.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(knockbackForce, 1));
 			}
 		}
