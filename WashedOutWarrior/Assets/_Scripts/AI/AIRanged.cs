@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPatroller:Listener {
-
+public class AIRanged:MonoBehaviour {
 	public int enemySpeed;
 	public int xMoveDirection;
-	public HealthBar healthBar;
 	public GameObject projectile;
 	public float bulletImpulse = 20.0f;
 	public bool fired = false;
@@ -14,15 +12,11 @@ public class AIPatroller:Listener {
 
 	void Start () {
 		parent = transform.Find("BulletSpawn");
-		if (healthBar != null) {
-			healthBar.deathListeners.Add(this);
-		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (xMoveDirection != 0)
-		{
+		if (xMoveDirection != 0) {
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0), 23f);
 			if (hit.collider != null) {
 				if(hit.collider.tag != "Player") {
@@ -41,15 +35,12 @@ public class AIPatroller:Listener {
 					}
 				}
 			}
-			else
-			{
+			else {
 				gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
 			}
 		}
-		else
-		{
-			if (!fired)
-			{
+		else {
+			if (!fired) {
 				Fire(-1);
 				Fire(1);
 				fired = true;
@@ -58,22 +49,18 @@ public class AIPatroller:Listener {
 		}
 	}
 
-	void FlipEnemy()
-	{
+	void FlipEnemy() {
 		print("Direction : " + xMoveDirection);
-		if (xMoveDirection > 0)
-		{
+		if (xMoveDirection > 0) {
 			print("flipped");
 			xMoveDirection = -1;
 		}
-		else
-		{
+		else {
 			xMoveDirection = 1;
 		}
 	}
 
-	void Fire(int direction)
-	{
+	void Fire(int direction) {
 		GameObject bullet = Instantiate(projectile, parent);
 		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
 		if (direction == 1 ) {
@@ -88,26 +75,7 @@ public class AIPatroller:Listener {
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (healthBar != null && collision.gameObject.CompareTag("Weapon")) {
-			healthBar.OnDamage(2);
-		}
-	}
-
-	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("BulletRicochet"))
-		{
-			healthBar.OnDamage();
-			Destroy(collision.collider.gameObject);
-		}
-	}
-
-	void ResetFired()
-	{
+	void ResetFired() {
 		fired = false;
-	}
-
-	override public void OnHear(GameObject g) {
-		Destroy(gameObject);
 	}
 }
