@@ -4,7 +4,7 @@ using UnityEngine;
 public class AISensors : Listener {
 	public List<Vector2> nodes = new List<Vector2>();
 	public HealthBar healthBar;
-	public Vector2 playerRelPos, playerRelPosRaw;
+	public Vector2 playerRelPos = Vector2.zero, playerRelPosRaw = Vector2.zero;
 	public float viewRange = 50f;
 
 	private void Awake() {

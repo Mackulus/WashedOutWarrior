@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 952139414}
   - component: {fileID: 952139413}
   - component: {fileID: 952139412}
-  - component: {fileID: 952139411}
   m_Layer: 8
   m_Name: Ground
   m_TagString: Ground
@@ -220,23 +219,6 @@ Transform:
   m_Father: {fileID: 440479513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!252 &952139411
-SurfaceEffector2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 952139409}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 1
-  m_SpeedVariation: 0
-  m_ForceScale: 0.1
-  m_UseContactForce: 0
-  m_UseFriction: 1
-  m_UseBounce: 1
 --- !u!114 &952139412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +244,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:

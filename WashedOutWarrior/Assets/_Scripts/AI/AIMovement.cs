@@ -37,7 +37,7 @@ public class AIMovement : MonoBehaviour {
 				}
 			}
 		}
-		else if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) <= .1f) {
+		else if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) <= .01f && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) <= .01f) {
 			isMoving = false;
 		}
 		else {
@@ -48,11 +48,12 @@ public class AIMovement : MonoBehaviour {
 	private void Jump(Vector2 direction) {
 		if (isGrounded) {
 			GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(direction.x * speed * jumpStrength, direction.y * jumpStrength));
+			isGrounded = false;
 		}
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Ground")) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
 			isGrounded = true;
 		}
 		else if (collision.collider.CompareTag("Player")) {
@@ -66,7 +67,9 @@ public class AIMovement : MonoBehaviour {
 		else if (collision.collider.CompareTag("Bullet")) {
 			Destroy(collision.collider.gameObject);
 		}
-		else if (collision.collider.CompareTag("LollipopWall")){
+	}
+	private void OnCollisionStay(Collision collision) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
 			isGrounded = true;
 		}
 	}

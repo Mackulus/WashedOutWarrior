@@ -21,7 +21,7 @@ public class PlayerController : Listener {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Z) && !isSwinging) {
+		if (gameObject.activeSelf && Input.GetKeyDown(KeyCode.Z) && !isSwinging) {
 			StartCoroutine(SwingWeapon());
 		}
 	}
@@ -32,7 +32,7 @@ public class PlayerController : Listener {
 	}
 
 	private void FixedUpdate() {
-		if (!isSwinging) {
+		if (gameObject.activeSelf && !isSwinging) {
 			if (IsFacingLeft()) {
 				weapon.posOffset = Vector3.back;
 				weapon.rotOffset = Vector3.zero;
@@ -60,7 +60,7 @@ public class PlayerController : Listener {
 			healthBar.OnDamage();
 		}
 	}
-		
+
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.gameObject.CompareTag("NewWeapon")) {
 			if (collision.gameObject.name == "Table Spoon") {

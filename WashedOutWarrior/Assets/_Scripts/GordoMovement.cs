@@ -86,10 +86,15 @@ public class GordoMovement : MonoBehaviour {
 			isGrounded = true;
 		}
     }
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.collider.CompareTag("Ground")) {
-            isGrounded = false;
-        }
+	private void OnCollisionStay(Collision collision) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
+			isGrounded = true;
+		}
+	}
+	private void OnCollisionExit2D(Collision2D collision) {
+		if (collision.collider.CompareTag("Ground")) {
+			isGrounded = false;
+		}
         if (collision.collider.CompareTag("Enemy")) {
             isGrounded = false;
         }
