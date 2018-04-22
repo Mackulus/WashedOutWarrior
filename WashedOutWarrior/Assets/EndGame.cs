@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EndGame : MonoBehaviour {
 
 	public GameObject chatbubble;
-	//private bool transitionFinished = false;
+	private GameObject gordo;
 	private string[] strings = {
 		"I did it! Doc says I'm good to go",
 		"I'll never forget where I've come from",
@@ -14,9 +14,7 @@ public class EndGame : MonoBehaviour {
 		"Let's hope that I can stay a..."
 	};
 	private int currentTextSlot = 0;
-	//private float startTime;
 	private bool fadeIn = true;
-	//private bool messageShowing = false;
 	private bool transitioning = false;
 	private bool transitionsFinished = false;
 	private Text[] texts;
@@ -26,13 +24,9 @@ public class EndGame : MonoBehaviour {
 
 	void Start() {
 		fadeScr = GameObject.FindObjectOfType<SceneFader>();
-		//startTime = Time.time;
+		gordo = GameObject.Find("OldGordo");
 		children = GameObject.Find("OldEnemies").GetComponentsInChildren<Transform>();
 		texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
-		//buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();
-		//for (int i = 0; i < buttons.Length; i++) {
-		//	buttons[i].gameObject.SetActive(false);
-		//}
 	}
 
 
@@ -97,13 +91,15 @@ public class EndGame : MonoBehaviour {
 					child.gameObject.GetComponent<FadeIn>().fadeIn = false;
 				}
 			}
+			gordo.GetComponent<FadeIn>().ResetStart();
+			gordo.GetComponent<FadeIn>().fadeIn = false;
 			texts[0].GetComponent<TextFadeIn>().enabled = true;
 			texts[1].GetComponent<TextFadeIn>().enabled = true;
 			StartCoroutine(BringInButtons());
 		}
 
 		if (currentTextSlot == 1) {
-			GameObject.Find("OldGordo").GetComponent<FadeIn>().enabled = true;
+			gordo.GetComponent<FadeIn>().enabled = true;
 		}
 		else if (currentTextSlot == 2) {
 			foreach (Transform child in children){
