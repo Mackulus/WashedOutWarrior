@@ -78,7 +78,7 @@ public class LevelEnd : Listener {
 	void NextLevel()
 	{
 		string activeScene = SceneManager.GetActiveScene().name;
-		if (activeScene != "Level2")
+		if (activeScene != "Level3")
 		{
 			int levelNumb = (int)char.GetNumericValue(activeScene[5]);
 			fadeScr.EndScene("Level" + (levelNumb+1).ToString());

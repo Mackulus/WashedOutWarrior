@@ -90,6 +90,11 @@ public class PlayerController : Listener {
 				weapons.pickedUpSpoon = true;
 				weapons.ChangeWeapon(2);
 			}
+			if (collision.gameObject.name == "Knife") {
+				Destroy(collision.gameObject);
+				weapons.pickedUpKnife = true;
+				weapons.ChangeWeapon(3);
+			}
 		}
 	}
 

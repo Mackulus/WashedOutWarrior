@@ -58,7 +58,7 @@ public class AISensors : Listener {
 				healthBar.OnDamage();
 			}
 			else if (collision.gameObject.name == "Knife"){
-				healthBar.OnDamage(2);
+				healthBar.OnDamage(4);
 			}
 		}
 	}
