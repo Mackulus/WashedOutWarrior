@@ -18,10 +18,11 @@ public class AIDuplicator : MonoBehaviour {
 		{
 			for (int i = 0; i < 2; i++)
 			{
-				Vector2 parentPosition = this.transform.localPosition;
+				Vector2 parentPosition = transform.localPosition;
 				GameObject clone = Instantiate(toDuplicate.gameObject);
 
 				clone.transform.localPosition = new Vector2 (parentPosition.x, parentPosition.y + 5 + i);
+				clone.transform.localScale = new Vector3(transform.localScale.x / 1.5f , transform.localScale.y / 1.5f, transform.localScale.z / 1.5f);
 				//Currently is specific to pizza because there is no good way to loop through components and check if they're disabled
 
 				clone.GetComponent<BoxCollider2D>().enabled = true;

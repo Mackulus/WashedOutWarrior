@@ -45,6 +45,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1161268128060550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4008824085349130}
+  m_Layer: 0
+  m_Name: SpawnPointR
+  m_TagString: Spawnpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1235249086336202
 GameObject:
   m_ObjectHideFlags: 1
@@ -90,9 +105,9 @@ GameObject:
   - component: {fileID: 212508148380341462}
   - component: {fileID: 50848319052318966}
   - component: {fileID: 58536678582406972}
-  - component: {fileID: 114099759612220262}
   - component: {fileID: 114987692877819884}
   - component: {fileID: 114249606209876670}
+  - component: {fileID: 114073103012176430}
   m_Layer: 0
   m_Name: PizzaBoss
   m_TagString: Boss
@@ -152,6 +167,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1925204398017908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4022887283671470}
+  m_Layer: 0
+  m_Name: SpawnPointL
+  m_TagString: Spawnpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4008824085349130
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161268128060550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.25, y: -1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4080686229272916}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4022887283671470
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925204398017908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.25, y: -1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4080686229272916}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4080686229272916
 Transform:
   m_ObjectHideFlags: 1
@@ -165,6 +221,8 @@ Transform:
   - {fileID: 4823263011106286}
   - {fileID: 4621489649935108}
   - {fileID: 4544711805514812}
+  - {fileID: 4022887283671470}
+  - {fileID: 4008824085349130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -446,7 +504,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58536678582406972
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -474,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
---- !u!114 &114099759612220262
+--- !u!114 &114073103012176430
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -482,14 +540,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1340551848817576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1857eaf18114f898818c4b92fd8ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: a3c9a906aadc0824688a4e538ef68797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 0
-  xMoveDirection: 0
-  projectile: {fileID: 1217741732599474, guid: 4c0f4e6630358bc46ab6aad55ebe8508, type: 2}
-  bulletImpulse: 20
-  fired: 1
 --- !u!114 &114165063211634170
 MonoBehaviour:
   m_ObjectHideFlags: 1
