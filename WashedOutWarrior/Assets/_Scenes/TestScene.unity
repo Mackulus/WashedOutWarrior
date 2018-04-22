@@ -648,36 +648,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1217741732599474, guid: 4c0f4e6630358bc46ab6aad55ebe8508, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114538824120654186, guid: 4c0f4e6630358bc46ab6aad55ebe8508, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c0f4e6630358bc46ab6aad55ebe8508, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2134226625 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1217741732599474, guid: 4c0f4e6630358bc46ab6aad55ebe8508,
-    type: 2}
-  m_PrefabInternal: {fileID: 2134226624}
---- !u!114 &2134226626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2134226625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensor: {fileID: 2134226628}
-  toDuplicate: {fileID: 1217741732599474, guid: 4c0f4e6630358bc46ab6aad55ebe8508,
-    type: 2}
---- !u!114 &2134226628 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114439350869256046, guid: 4c0f4e6630358bc46ab6aad55ebe8508,
-    type: 2}
-  m_PrefabInternal: {fileID: 2134226624}
-  m_Script: {fileID: 11500000, guid: 18db6cb2bc97faa46ae23508f9203c10, type: 3}

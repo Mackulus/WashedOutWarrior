@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 61690748723877192}
   - component: {fileID: 114439350869256046}
   - component: {fileID: 114352731995263062}
-  - component: {fileID: 114538824120654186}
+  - component: {fileID: 114313634885685102}
   m_Layer: 0
   m_Name: PizzaEnemy
   m_TagString: Enemy
@@ -602,6 +602,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
+--- !u!114 &114313634885685102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217741732599474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 114439350869256046}
+  toDuplicate: {fileID: 1217741732599474}
 --- !u!114 &114352731995263062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,18 +647,6 @@ MonoBehaviour:
   playerRelPos: {x: 0, y: 0}
   playerRelPosRaw: {x: 0, y: 0}
   viewRange: 50
---- !u!114 &114538824120654186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217741732599474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toDuplicate: {fileID: 114439350869256046}
 --- !u!114 &114989405921635574
 MonoBehaviour:
   m_ObjectHideFlags: 1
