@@ -90,6 +90,11 @@ public class PlayerController : Listener {
 				weapons.pickedUpSpoon = true;
 				weapons.ChangeWeapon(2);
 			}
+			if (collision.gameObject.name == "Knife") {
+				Destroy(collision.gameObject);
+				weapons.pickedUpKnife = true;
+				weapons.ChangeWeapon(3);
+			}
 		}
 	}
 
@@ -99,6 +104,9 @@ public class PlayerController : Listener {
 		//print("SwingWeapon");
 
 		int nTimes = 10;
+		if (weapons.CurrentWeapon().name == "Knife"){
+			nTimes = 20;
+		}
 		float startOffset, endOffset;
 		if (IsFacingLeft()) {
 			//Swing in a 140 degree left-facing arc

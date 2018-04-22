@@ -32,6 +32,8 @@ public class SceneFader : MonoBehaviour {
 
 
 	void StartScene() {
+		FadeImg.gameObject.SetActive(true);
+		FadeImg.enabled = true;
 		// Fade the texture to clear.
 		FadeToClear();
 
