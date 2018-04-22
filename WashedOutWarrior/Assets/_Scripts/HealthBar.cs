@@ -12,6 +12,9 @@ public class HealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if(PlayerPrefs.GetInt("CalorieBurner") == 1 && (transform.parent.CompareTag("Enemy") || transform.parent.CompareTag("Boss"))){
+			maxHealth *= 2;
+		}
 		healthBar = new GameObject[maxHealth/2];
 		for(int ix = 0; ix < healthBar.Length; ix++) {
 			float scaleUpFactor = 10f;

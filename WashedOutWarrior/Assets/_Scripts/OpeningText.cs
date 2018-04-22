@@ -20,9 +20,11 @@ public class OpeningText : MonoBehaviour {
 	private bool transitioning = false;
 	private bool transitionsFinished = false;
 	private Button[] buttons;
+	private Text[] texts;
 
 	void Start() {
 		//startTime = Time.time;
+		texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
 		buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();
 		for (int i = 0; i < buttons.Length; i++) {
 			buttons[i].gameObject.SetActive(false);
@@ -39,6 +41,25 @@ public class OpeningText : MonoBehaviour {
 			else {
 				StartCoroutine(FadeTextToZeroAlpha(1f, GetComponent<Text>()));
 			}
+		}
+
+		if (Input.anyKeyDown && !transitionsFinished)
+		{
+			StopAllCoroutines();
+			SkipStory();
+		}
+	}
+
+	public void SkipStory()
+	{
+		Color fadedIn = new Color (1f, 1f, 1f, 1f);
+		GameObject.Find("MainMenuBackground").GetComponent<SpriteRenderer>().color = fadedIn;
+		texts[0].GetComponent<Text>().color = fadedIn;
+		texts[1].GetComponent<Text>().color = fadedIn;
+		chatbubble.SetActive(false);
+		for (int i = 0; i < buttons.Length; i++)
+		{
+			buttons[i].gameObject.SetActive(true);
 		}
 	}
 		
@@ -71,7 +92,6 @@ public class OpeningText : MonoBehaviour {
 			transitionsFinished = true;
 			chatbubble.GetComponent<FadeIn>().ResetStart();
 			chatbubble.GetComponent<FadeIn>().fadeIn = false;
-			Text[] texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
 			texts[0].GetComponent<TextFadeIn>().enabled = true;
 			texts[1].GetComponent<TextFadeIn>().enabled = true;
 			StartCoroutine(BringInButtons());
