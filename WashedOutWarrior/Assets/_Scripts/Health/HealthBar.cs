@@ -27,6 +27,7 @@ public class HealthBar : MonoBehaviour {
 			tempGO.transform.localScale = tempScale;
 			healthBar[ix] = tempGO;
 		}
+		UpdateBar();
 	}
 
 	public void OnDamage(int d = 1) {

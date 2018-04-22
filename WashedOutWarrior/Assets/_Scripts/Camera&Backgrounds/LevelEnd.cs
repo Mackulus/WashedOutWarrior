@@ -9,7 +9,7 @@ public class LevelEnd : Listener {
 	public HealthBar healthBarPlayer = null;
 	public List<HealthBar> healthBarBoss = null;
 	public bool defeatAllBosses = false;
-	private List<bool> defeatedBosses = null;
+	//private List<bool> defeatedBosses = null;
 	public Text winText, loseText;
 	private SceneFader fadeScr;
 
@@ -26,7 +26,7 @@ public class LevelEnd : Listener {
 		}
 
 		healthBarBoss.Capacity = healthBarBoss.Count;
-		defeatedBosses = new List<bool>(healthBarBoss.Count);
+		//defeatedBosses = new List<bool>(healthBarBoss.Count);
 		
 		//healthBarPlayer = Camera.main.transform.GetChild(1).GetComponent<PlayerController>().healthBar;
 		//GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().healthBar;
