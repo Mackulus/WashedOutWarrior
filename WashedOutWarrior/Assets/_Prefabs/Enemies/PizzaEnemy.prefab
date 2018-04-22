@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toDuplicate: {fileID: 1217741732599474}
+  toDuplicate: {fileID: 114439350869256046}
 --- !u!114 &114989405921635574
 MonoBehaviour:
   m_ObjectHideFlags: 1

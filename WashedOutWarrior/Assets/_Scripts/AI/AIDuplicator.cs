@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIDuplicator : MonoBehaviour {
-	public GameObject toDuplicate;
+	public AISensors toDuplicate;
 	private bool duplicate = true;
 	private bool isQuitting = false;
 
@@ -12,21 +12,24 @@ public class AIDuplicator : MonoBehaviour {
 		isQuitting = true;
 	}
 
-	void OnDestroy()
+	void OnDisable()
 	{
 		if (duplicate && !isQuitting && toDuplicate != null)
 		{
 			for (int i = 0; i < 2; i++)
 			{
 				Vector2 parentPosition = this.transform.localPosition;
-				GameObject clone = Instantiate(toDuplicate);
+				GameObject clone = Instantiate(toDuplicate.gameObject);
+
 				clone.transform.localPosition = new Vector2 (parentPosition.x, parentPosition.y + 5 + i);
 				//Currently is specific to pizza because there is no good way to loop through components and check if they're disabled
+
 				clone.GetComponent<BoxCollider2D>().enabled = true;
 				clone.GetComponent<AISensors>().enabled = true;
 				clone.GetComponent<AIMovement>().enabled = true;
 				clone.GetComponent<AIDuplicator>().ChangeDuplicate(false);
 				clone.GetComponentInChildren<HealthBar>().enabled = true;
+				clone.GetComponentInChildren<HealthBar>().maxHealth = toDuplicate.healthBar.maxHealth/2;
 				clone.GetComponentInChildren<HealthBar>().damage = 0;
 				clone.SetActive(true);
 			}

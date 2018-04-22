@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 70465863149323160}
   m_Layer: 0
   m_Name: Plastic Spoon
-  m_TagString: Weapon
+  m_TagString: NewWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

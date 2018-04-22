@@ -8,6 +8,7 @@ public class AISensors : Listener {
 	public float viewRange = 50f;
 
 	private void Awake() {
+		healthBar = gameObject.GetComponentInChildren<HealthBar>();
 		if (healthBar != null) {
 			healthBar.deathListeners.Add(this);
 		}
@@ -64,6 +65,6 @@ public class AISensors : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 	}
 }

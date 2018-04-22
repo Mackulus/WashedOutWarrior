@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114646160125500956}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Weapon
+  m_TagString: NewWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   knockbackForce: 2500
+  speed: 10
