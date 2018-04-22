@@ -9,7 +9,7 @@ public class GordoMovement : MonoBehaviour {
 	public bool facingLeft = true;
 	Animator anim;
 	private bool isWalking = false;
-	bool isGrounded = false;
+	bool isGrounded = true;
 	bool isJumping = false;
 
 	void Start() {
@@ -25,18 +25,18 @@ public class GordoMovement : MonoBehaviour {
 
     void MoveGordo() {
 		moveX = Input.GetAxis("Horizontal");
-		if (moveX != 0.0f && isWalking == false) {
+		moveY = Input.GetAxis("Vertical");
+		if (moveX != 0.0f && isWalking == false && moveY == 0.0f) {
 			anim.ResetTrigger("Idle_01");
 			anim.SetTrigger("Walk_01");
 			isWalking = true;
 		}
-		else if (moveX == 0.0f && isWalking == true) {
+		else if (moveX == 0.0f && isWalking == true && moveY == 0.0f) {
 			anim.ResetTrigger("Walk_01");
 			anim.SetTrigger("Idle_01");
 			isWalking = false;
 		}
-
-        moveY = Input.GetAxis("Vertical");
+			
         //if (Input.GetButtonDown("Jump"))
         if (moveY > 0.0F && !isJumping) {
 			GordoJump();
@@ -76,15 +76,16 @@ public class GordoMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         //print(collision.collider.tag);
-        if (collision.collider.CompareTag("Ground")) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
+			print("Entered");
             isGrounded = true;
         }
-        if (collision.collider.CompareTag("Enemy")) {
-            isGrounded = true;
-        }
-		if (collision.collider.CompareTag("LollipopWall")){
-			isGrounded = true;
-		}
+        //if (collision.collider.CompareTag("Enemy")) {
+        //    isGrounded = true;
+        //}
+		//if (collision.collider.CompareTag("LollipopWall")){
+		//	isGrounded = true;
+		//}
     }
 	private void OnCollisionStay(Collision collision) {
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
@@ -92,15 +93,16 @@ public class GordoMovement : MonoBehaviour {
 		}
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Ground")) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
+			print("Exited");
 			isGrounded = false;
 		}
-        if (collision.collider.CompareTag("Enemy")) {
-            isGrounded = false;
-        }
-		if (collision.collider.CompareTag("LollipopWall")){
-			isGrounded = false;
-		}
+        //if (collision.collider.CompareTag("Enemy")) {
+        //    isGrounded = false;
+        //}
+		//if (collision.collider.CompareTag("LollipopWall")){
+		//	isGrounded = false;
+		//}
     }
 
 	/*void GordoRaycast() {

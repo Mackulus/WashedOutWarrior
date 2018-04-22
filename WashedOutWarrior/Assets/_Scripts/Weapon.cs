@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 	public PlayerController player;
 
-	public float knockbackForce = 1500f;
+	public float knockbackForce = 200f;
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss")) {

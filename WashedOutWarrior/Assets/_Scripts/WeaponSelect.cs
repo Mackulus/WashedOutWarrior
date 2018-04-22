@@ -5,7 +5,9 @@ using UnityEngine;
 public class WeaponSelect : MonoBehaviour {
 	public static int weaponInHand = 1;
 	public static bool PickedUpSpoon = false;
+	public static bool PickedUpKnife = false;
 	public bool pickedUpSpoon = false;
+	public bool pickedUpKnife = false;
 
 	private List<Weapon> weapons = new List<Weapon>();
 
@@ -26,7 +28,7 @@ public class WeaponSelect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)) {
+		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3)) {
 			ChangeWeapon(Int32.Parse(Input.inputString));
 		}
 	}
@@ -43,7 +45,7 @@ public class WeaponSelect : MonoBehaviour {
 		print("Selected " + weaponSelected);
 		print("In hand " + weaponInHand);
 		//print("Spoon? " + pickedUpSpoon);
-		if (weaponSelected != weaponInHand && ((weaponSelected == 2 && pickedUpSpoon) || weaponSelected != 2)) {
+		if (weaponSelected != weaponInHand && ((weaponSelected == 2 && pickedUpSpoon) || weaponSelected != 2) && ((weaponSelected == 3 && pickedUpKnife) || weaponSelected != 3)) {
 			/*
 			Vector3 localPosition = new Vector3();
 			Quaternion localRotation = new Quaternion();

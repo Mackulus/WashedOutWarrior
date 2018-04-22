@@ -58,6 +58,7 @@ public class AISensors : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
+		gameObject.SetActive(false);
 		Destroy(gameObject);
 	}
 }
