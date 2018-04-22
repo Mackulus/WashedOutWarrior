@@ -52,13 +52,11 @@ public class AISensors : Listener {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (healthBar != null){
-			if (collision.gameObject.name == "Plastic Spork" && !gameObject.name.Contains("Pizza")){
+		// Checking for weapon tag is important, I don't want enemies to be hit when weapon is not swinging
+		if (healthBar != null && collision.CompareTag("Weapon")){
+			if (!gameObject.name.Contains("Pizza")){
 				healthBar.OnDamage();
 			}
-			//else if (collision.gameObject.name == "Table Spoon" && !gameObject.name.Contains("Pizza")){
-			//	healthBar.OnDamage(0.5f);
-			//}
 			else if (collision.gameObject.name == "Knife"){
 				healthBar.OnDamage(2);
 			}

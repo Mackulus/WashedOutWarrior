@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIDuplicator : MonoBehaviour {
-
-
 	public GameObject toDuplicate;
 	private bool duplicate = true;
 	private bool isQuitting = false;
@@ -37,8 +35,7 @@ public class AIDuplicator : MonoBehaviour {
 	}
 
 	//To be used later to make a boss where some duplications are false and others are true;
-	void ChangeDuplicate(bool newDuplicate)
-	{
+	void ChangeDuplicate(bool newDuplicate) {
 		duplicate = newDuplicate;
 	}
 }

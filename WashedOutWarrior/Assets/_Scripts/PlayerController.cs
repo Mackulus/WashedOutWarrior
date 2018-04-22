@@ -16,7 +16,6 @@ public class PlayerController : Listener {
 		if (healthBar != null) {
 			healthBar.deathListeners.Add(this);
 		}
-		
 	}
 	
 	// Update is called once per frame
@@ -26,8 +25,7 @@ public class PlayerController : Listener {
 		}
 	}
 
-	public bool ReturnSwinging()
-	{
+	public bool ReturnSwinging() {
 		return isSwinging;
 	}
 

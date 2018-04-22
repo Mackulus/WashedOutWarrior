@@ -80,15 +80,9 @@ public class GordoMovement : MonoBehaviour {
 			print("Entered");
             isGrounded = true;
         }
-        //if (collision.collider.CompareTag("Enemy")) {
-        //    isGrounded = true;
-        //}
-		//if (collision.collider.CompareTag("LollipopWall")){
-		//	isGrounded = true;
-		//}
     }
-	private void OnCollisionStay(Collision collision) {
-		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
+	private void OnCollisionStay2D(Collision collision) {
+		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
 			isGrounded = true;
 		}
 	}
@@ -97,33 +91,5 @@ public class GordoMovement : MonoBehaviour {
 			print("Exited");
 			isGrounded = false;
 		}
-        //if (collision.collider.CompareTag("Enemy")) {
-        //    isGrounded = false;
-        //}
-		//if (collision.collider.CompareTag("LollipopWall")){
-		//	isGrounded = false;
-		//}
     }
-
-	/*void GordoRaycast() {
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-		print(hit.collider.tag);
-		if (hit != null && hit.collider != null) {
-			if (hit.distance < 0.1f && hit.collider.tag == "Enemy") {
-				GetComponent<Rigidbody2D>().AddForce(Vector2.up*1000);
-				hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*200);
-				hit.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
-				hit.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 20;
-				hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-				hit.collider.gameObject.GetComponent<EnemyMove>().enabled = false;
-				Destroy(hit.collider.gameObject);
-			}
-			if (hit.distance < 0.1f && hit.collider.tag == "Ground" && !isJumping) {
-				print("Hitting the ground");
-				isGrounded = true;
-				gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-			}
-            
-		}
-	}*/
 }

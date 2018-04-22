@@ -588,7 +588,7 @@ MonoBehaviour:
   deathListeners: []
   spriteIcons:
   - {fileID: 21300000, guid: 58049bbb008237e40a0d6c2ec45128d7, type: 3}
-  - {fileID: 21300000, guid: fa4b78de1002e894e829ccc5588c4e58, type: 3}
+  - {fileID: 21300000, guid: 25aaabf97acd24142bb971a335ae242f, type: 3}
   - {fileID: 21300000, guid: c0c8af2f6afb332439ab8ab3fd5b112e, type: 3}
 --- !u!114 &114139730941808664
 MonoBehaviour:
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb62f93ef959db7488a675f2ff0d344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensor: {fileID: 0}
+  sensor: {fileID: 114439350869256046}
   speed: 1
   jumpStrength: 500
   isTypeJumping: 0
