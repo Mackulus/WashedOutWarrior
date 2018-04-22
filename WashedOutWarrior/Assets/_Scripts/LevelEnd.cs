@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -50,18 +51,39 @@ public class LevelEnd : Listener {
 		if (g.GetComponent<HealthBar>() == healthBarPlayer) {
 			//GameOver
 			loseText.gameObject.SetActive(true);
-			SceneManager.LoadScene("MainMenu");
+			Invoke("ResetLevel", 2f);
 		}
 		else {
 			if (defeatAllBosses) {
 				//TODO: Implement detecting which boss was killed
 				winText.gameObject.SetActive(true);
-				SceneManager.LoadScene("MainMenu");
+				Invoke("NextLevel", 2f);
+				//SceneManager.LoadScene("MainMenu");
 			}
 			else {
 				winText.gameObject.SetActive(true);
-				SceneManager.LoadScene("MainMenu");
+				Invoke("NextLevel", 2f);
+				//SceneManager.LoadScene("MainMenu");
 			}
+		}
+	}
+
+	void ResetLevel()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	void NextLevel()
+	{
+		string activeScene = SceneManager.GetActiveScene().name;
+		if (activeScene != "Level2")
+		{
+			int levelNumb = (int)char.GetNumericValue(activeScene[5]);
+			SceneManager.LoadScene("Level" + (levelNumb+1).ToString());
+		}
+		else
+		{
+			SceneManager.LoadScene("MainMenu");
 		}
 	}
 }
