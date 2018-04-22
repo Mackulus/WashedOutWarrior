@@ -8,8 +8,7 @@ public class AIDuplicator : MonoBehaviour {
 	private bool duplicate = true;
 	private bool isQuitting = false;
 
-	void OnApplicationQuit()
-	{
+	void OnApplicationQuit() {
 		isQuitting = true;
 	}
 
@@ -17,8 +16,12 @@ public class AIDuplicator : MonoBehaviour {
 		if (duplicate && !isQuitting && toDuplicate != null) {
 			for (int i = 0; i < 2; i++) {
 				GameObject temp = Instantiate(toDuplicate);
-				temp.GetComponent<AIDuplicator>().enabled = false;
-				temp.transform.position = (Vector2)transform.position + (sensor.playerRelPos * -2);
+				if (transform != null) {
+					temp.transform.position = transform.position;
+				}
+				if (sensor != null) {
+					temp.transform.position += (Vector3)(sensor.playerRelPos * -2);
+				}
 
 				/*
 				Vector2 parentPosition = transform.localPosition;

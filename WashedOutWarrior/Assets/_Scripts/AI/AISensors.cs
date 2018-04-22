@@ -6,6 +6,7 @@ public class AISensors : Listener {
 	public HealthBar healthBar;
 	public Vector2 playerRelPos = Vector2.zero, playerRelPosRaw = Vector2.zero;
 	public float viewRange = 50f;
+	private bool isImmune = false;
 
 	private void Awake() {
 		healthBar = gameObject.GetComponentInChildren<HealthBar>();
@@ -17,6 +18,12 @@ public class AISensors : Listener {
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating("FindPlayer", .25f, .25f);
+		IgnoreDamage();
+	}
+
+	private void IgnoreDamage() {
+		if (!isImmune) Invoke("IgnoreDamage", 0.25f);
+		isImmune = !isImmune;
 	}
 
     private void FindPlayer() {
@@ -40,12 +47,14 @@ public class AISensors : Listener {
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Player") && healthBar != null) {
-			healthBar.OnDamage();
-		}
-		else if (collision.collider.CompareTag("BulletRicochet") && healthBar != null) {
-			healthBar.OnDamage();
-			Destroy(collision.collider.gameObject);
+		if (healthBar != null && !isImmune) {
+			if (collision.collider.CompareTag("Player") && healthBar != null) {
+				healthBar.OnDamage();
+			}
+			else if (collision.collider.CompareTag("BulletRicochet") && healthBar != null) {
+				healthBar.OnDamage();
+				Destroy(collision.collider.gameObject);
+			}
 		}
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
@@ -54,11 +63,11 @@ public class AISensors : Listener {
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		// Checking for weapon tag is important, I don't want enemies to be hit when weapon is not swinging
-		if (healthBar != null && collision.CompareTag("Weapon")){
-			if (!gameObject.name.Contains("Pizza")){
+		if (collision.CompareTag("Weapon") && healthBar != null && !isImmune) {
+			if (!gameObject.name.Contains("Pizza")) {
 				healthBar.OnDamage();
 			}
-			else if (collision.gameObject.name == "Knife"){
+			else if (collision.gameObject.name == "Knife") {
 				healthBar.OnDamage(4);
 			}
 		}

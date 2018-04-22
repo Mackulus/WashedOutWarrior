@@ -71,9 +71,8 @@ GameObject:
   - component: {fileID: 61690748723877192}
   - component: {fileID: 114439350869256046}
   - component: {fileID: 114352731995263062}
-  - component: {fileID: 114313634885685102}
   m_Layer: 0
-  m_Name: PizzaEnemy
+  m_Name: PizzaEnemyClone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,8 +299,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1217741732599474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 123.8, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
   m_Children:
   - {fileID: 4464226174849620}
   - {fileID: 4469322358438622}
@@ -602,20 +601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
---- !u!114 &114313634885685102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217741732599474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensor: {fileID: 114439350869256046}
-  toDuplicate: {fileID: 1217741732599474, guid: c7d483b10b15a1b4c824171e60932dd1,
-    type: 2}
 --- !u!114 &114352731995263062
 MonoBehaviour:
   m_ObjectHideFlags: 1

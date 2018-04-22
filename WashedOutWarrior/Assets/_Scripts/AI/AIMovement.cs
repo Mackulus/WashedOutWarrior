@@ -40,9 +40,6 @@ public class AIMovement : MonoBehaviour {
 		else if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) <= .05f && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) <= .05f) {
 			isMoving = false;
 		}
-		else {
-
-		}
 	}
 
 	private void Jump(Vector2 direction) {
