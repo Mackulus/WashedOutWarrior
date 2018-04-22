@@ -5,6 +5,7 @@ using UnityEngine;
 public class AISpawner : MonoBehaviour {
 	private List<Transform> Spawnpoints = new List<Transform>();
 
+	public AISensors sensor;
 	public GameObject child;
 	public int maxSpawns = 20;
 
@@ -15,10 +16,14 @@ public class AISpawner : MonoBehaviour {
 				Spawnpoints.Add(transform.GetChild(ix));
 			}
 		}
-
-		InvokeRepeating("Spawn", 5f, 15f);
 	}
-	
+
+	private void Update() {
+		if ((!IsInvoking("Spawn")) && sensor != null && sensor.playerRelPos != Vector2.zero) {
+			InvokeRepeating("Spawn", 5f, 15f);
+		}
+	}
+
 	private void Spawn() {
 		if (child != null) {
 			foreach (Transform t in Spawnpoints) {
@@ -28,7 +33,7 @@ public class AISpawner : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	private void OnDisable() {
 		CancelInvoke();
 	}
