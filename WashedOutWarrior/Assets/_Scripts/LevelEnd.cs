@@ -11,6 +11,7 @@ public class LevelEnd : Listener {
 	public bool defeatAllBosses = false;
 	private List<bool> defeatedBosses = null;
 	public Text winText, loseText;
+	private SceneFader fadeScr;
 
 	private void Awake() {
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Boss")) {
@@ -33,6 +34,7 @@ public class LevelEnd : Listener {
 
 	// Use this for initialization
 	void Start () {
+		fadeScr = GameObject.FindObjectOfType<SceneFader>();
 		foreach (HealthBar hB in healthBarBoss) {
 			hB.deathListeners.Add(this);
 		}
@@ -42,7 +44,7 @@ public class LevelEnd : Listener {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			SceneManager.LoadScene("MainMenu");
+			fadeScr.EndScene("MainMenu");
 		}
 	}
 
@@ -79,11 +81,11 @@ public class LevelEnd : Listener {
 		if (activeScene != "Level2")
 		{
 			int levelNumb = (int)char.GetNumericValue(activeScene[5]);
-			SceneManager.LoadScene("Level" + (levelNumb+1).ToString());
+			fadeScr.EndScene("Level" + (levelNumb+1).ToString());
 		}
 		else
 		{
-			SceneManager.LoadScene("MainMenu");
+			fadeScr.EndScene("MainMenu");
 		}
 	}
 }

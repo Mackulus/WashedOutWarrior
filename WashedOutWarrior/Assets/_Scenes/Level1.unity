@@ -1913,7 +1913,7 @@ MonoBehaviour:
   - {fileID: 1395322652}
   - {fileID: 642232710}
   - {fileID: 1661112734}
-  smoothing: 1.1
+  smoothing: 0.5
 --- !u!4 &609487522
 Transform:
   m_ObjectHideFlags: 0
@@ -2132,11 +2132,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4445521136715882, guid: 0506ef12ce956435eb7f47afb5e8ac25,
     type: 2}
   m_PrefabInternal: {fileID: 654686337}
---- !u!1 &667741511 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1951608164951786, guid: 6bf3011d85b9af64abf1a26df542ab46,
-    type: 2}
-  m_PrefabInternal: {fileID: 1425060952}
 --- !u!1001 &683936182
 Prefab:
   m_ObjectHideFlags: 0
@@ -3525,11 +3520,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114573641672611126, guid: 6bf3011d85b9af64abf1a26df542ab46,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 667741511}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bf3011d85b9af64abf1a26df542ab46, type: 2}
   m_IsPrefabParent: 0

@@ -57,7 +57,6 @@ public class AIPopsicleBoss : Listener {
 			healthBar.OnDamage();
 		}
 		else if (collision.collider.CompareTag("BulletRicochet")) {
-			print("Uh oh");
 			healthBar.OnDamage();
 			Destroy(collision.collider.gameObject);
 		}

@@ -77,18 +77,18 @@ public class GordoMovement : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         //print(collision.collider.tag);
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
-			print("Entered");
+			//print("Entered");
             isGrounded = true;
         }
     }
-	private void OnCollisionStay2D(Collision collision) {
+	private void OnCollisionStay2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
 			isGrounded = true;
 		}
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
-			print("Exited");
+			//print("Exited");
 			isGrounded = false;
 		}
     }

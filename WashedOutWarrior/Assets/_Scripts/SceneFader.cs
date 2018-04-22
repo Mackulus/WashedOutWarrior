@@ -36,7 +36,7 @@ public class SceneFader : MonoBehaviour {
 		FadeToClear();
 
 		// If the texture is almost clear...
-		if (FadeImg.color.a <= 0.05f) {
+		if (FadeImg.color.a <= 0.01f) {
 			// ... set the colour to clear and disable the RawImage.
 			FadeImg.color = Color.clear;
 			FadeImg.enabled = false;
@@ -54,7 +54,7 @@ public class SceneFader : MonoBehaviour {
 			FadeToBlack();
 
 			// If the screen is almost black...
-			if (FadeImg.color.a >= 0.95f) {
+			if (FadeImg.color.a >= 0.99f) {
 				// ... reload the level
 				SceneManager.LoadScene(scene);
 				yield break;

@@ -186,11 +186,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &318675835 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1049883628336886, guid: 53efb05b3307545ea9a72635c3e3c6a4,
-    type: 2}
-  m_PrefabInternal: {fileID: 489491331}
 --- !u!224 &318675836 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224683423764199110, guid: 53efb05b3307545ea9a72635c3e3c6a4,
@@ -1684,7 +1679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 318675835}
+      - m_Target: {fileID: 0}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
