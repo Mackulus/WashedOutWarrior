@@ -30,6 +30,9 @@ public class HealthBar : MonoBehaviour {
 		//print("Took (" + d + ") damage");
 
 		damage += d;
+		if (damage < 0){
+			damage = 0;
+		}
 		UpdateBar();
 
 		if (damage >= maxHealth) {

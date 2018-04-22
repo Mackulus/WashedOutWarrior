@@ -58,14 +58,10 @@ public class PlayerController : Listener {
 		else if (collision.collider.CompareTag("Bullet")) {
 			if(collision.gameObject.GetComponent<Bullet>().HasHitPlayer() == false)
 			{
-				print("Hit");
+				//print("Hit");
 				collision.gameObject.GetComponent<Bullet>().HitPlayer();
 				Destroy(collision.collider.gameObject);
 				healthBar.OnDamage();
-			}
-			else
-			{
-				print("Weird");
 			}
 		}
 	}

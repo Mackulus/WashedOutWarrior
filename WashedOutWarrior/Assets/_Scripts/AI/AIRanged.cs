@@ -17,21 +17,21 @@ public class AIRanged:MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (xMoveDirection != 0) {
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0), 23f);
-			if (hit.collider != null) {
-				if(hit.collider.tag != "Player") {
-					if(hit.collider.tag != "Bullet") {
-						gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
-						if (hit.distance < 5f && hit.collider.name != this.name) {
-							FlipEnemy();
-						}
-					}
+			RaycastHit2D hitRight = Physics2D.Raycast(transform.position, new Vector2(1, 0), 23f);
+			RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, new Vector2(-1, 0), 23f);
+			if (hitRight.collider != null || hitLeft.collider != null) {
+				if (hitRight.collider != null && hitRight.collider.CompareTag("Player") && !fired){
+					FireDirection(1);
 				}
-				else {
-					if (!fired) {
-						Fire(xMoveDirection);
-						fired = true;
-						Invoke("ResetFired", 1f);
+				else if (hitLeft.collider != null && hitLeft.collider.CompareTag("Player") && !fired){
+					FireDirection(-1);
+				}
+				else if (!fired){
+					if(hitRight.collider != null){
+						CheckForFlip(hitRight, 1);
+					}
+					else{
+						CheckForFlip(hitLeft, -1);
 					}
 				}
 			}
@@ -45,6 +45,23 @@ public class AIRanged:MonoBehaviour {
 				Fire(1);
 				fired = true;
 				Invoke("ResetFired", 1f);
+			}
+		}
+	}
+
+	void FireDirection(int direction)
+	{
+		Fire(direction);
+		fired = true;
+		Invoke("ResetFired", 1f);
+	}
+
+	void CheckForFlip(RaycastHit2D hit, int direction)
+	{
+		if(hit.collider.tag != "Bullet" && hit.collider.tag != "BulletRicochet" && hit.collider.tag != "Weapon"){
+			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xMoveDirection, 0)*enemySpeed;
+			if (hit.distance < 5f && hit.collider.name != this.name && direction == xMoveDirection){
+				FlipEnemy();
 			}
 		}
 	}
