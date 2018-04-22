@@ -52,13 +52,20 @@ public class AISensors : Listener {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag("Weapon") && healthBar != null) {
-			healthBar.OnDamage();
+		if (healthBar != null){
+			if (collision.gameObject.name == "Plastic Spork" && !gameObject.name.Contains("Pizza")){
+				healthBar.OnDamage();
+			}
+			//else if (collision.gameObject.name == "Table Spoon" && !gameObject.name.Contains("Pizza")){
+			//	healthBar.OnDamage(0.5f);
+			//}
+			else if (collision.gameObject.name == "Knife"){
+				healthBar.OnDamage(2);
+			}
 		}
 	}
 
 	override public void OnHear(GameObject g) {
-		gameObject.SetActive(false);
 		Destroy(gameObject);
 	}
 }
