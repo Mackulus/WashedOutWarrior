@@ -930,7 +930,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812949225404104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0512314, y: 0.7033683, z: -0.05445903}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224355518499891422}
@@ -2516,6 +2516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114332927067496282}
   knockbackForce: 600
+  speed: 20
 --- !u!114 &114160706037883192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2679,6 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114332927067496282}
   knockbackForce: 200
+  speed: 10
 --- !u!114 &114476389473974650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2739,6 +2741,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1951608164951786}
   offset: {x: 0, y: 0, z: -50}
+  xMin: 0
+  xMax: 0
+  yMin: 0
+  yMax: 0
 --- !u!114 &114599907455906516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2791,6 +2797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114332927067496282}
   knockbackForce: 400
+  speed: 10
 --- !u!114 &114934001463463916
 MonoBehaviour:
   m_ObjectHideFlags: 1

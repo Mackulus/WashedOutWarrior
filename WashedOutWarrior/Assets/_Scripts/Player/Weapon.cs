@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour {
 	public PlayerController player;
 
 	public float knockbackForce = 200f;
+	public int speed = 10;
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (gameObject.CompareTag("Weapon") && (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))) {

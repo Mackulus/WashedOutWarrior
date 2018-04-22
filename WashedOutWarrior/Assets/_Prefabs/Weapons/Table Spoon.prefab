@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   knockbackForce: 2000
+  speed: 10

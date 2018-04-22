@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 70149811354114272}
   m_Layer: 0
   m_Name: Table Fork
-  m_TagString: Weapon
+  m_TagString: NewWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

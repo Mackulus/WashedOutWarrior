@@ -103,16 +103,12 @@ public class PlayerController : Listener {
 		weapons.CurrentWeapon().tag = "Weapon";
 		//print("SwingWeapon");
 
-		int nTimes = 10;
-		if (weapons.CurrentWeapon().name == "Knife"){
-			nTimes = 20;
-		}
 		float startOffset, endOffset;
 		if (IsFacingLeft()) {
 			//Swing in a 140 degree left-facing arc
 			startOffset = 0f;
 			endOffset = 140f;
-			for(int ix = (int)startOffset; ix <= endOffset; ix += 140 / nTimes) {
+			for(int ix = (int)startOffset; ix <= endOffset; ix += 140 / weapons.CurrentWeapon().speed) {
 				yield return new WaitForFixedUpdate();
 				weapon.rotOffset = Vector3.forward * ix;
 			}
@@ -121,7 +117,7 @@ public class PlayerController : Listener {
 			//Swing in a 140 degree right-facing arc
 			startOffset = -125f;
 			endOffset = -265f;
-			for (int ix = (int)startOffset; ix >= endOffset; ix -= 140 / nTimes) {
+			for (int ix = (int)startOffset; ix >= endOffset; ix -= 140 / weapons.CurrentWeapon().speed) {
 				yield return new WaitForFixedUpdate();
 				weapon.rotOffset = Vector3.forward * ix;
 			}

@@ -16,6 +16,7 @@ TagManager:
   - LollipopWall
   - BulletRicochet
   - NewWeapon
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

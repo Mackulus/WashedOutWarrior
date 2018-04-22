@@ -49,8 +49,7 @@ public class AIRanged:MonoBehaviour {
 		}
 	}
 
-	void FireDirection(int direction)
-	{
+	void FireDirection(int direction) {
 		Fire(direction);
 		fired = true;
 		Invoke("ResetFired", 1f);
@@ -79,7 +78,7 @@ public class AIRanged:MonoBehaviour {
 
 	void Fire(int direction) {
 		GameObject bullet = Instantiate(projectile, parent);
-		bullet.transform.localPosition = new Vector3(parent.transform.localPosition.x, parent.transform.localPosition.y, parent.transform.localPosition.z);
+		bullet.transform.localPosition = new Vector2(parent.transform.localPosition.x, parent.transform.localPosition.y);
 		if (direction == 1 ) {
 			//print("In here");
 			Vector2 localScale = bullet.transform.localScale;
