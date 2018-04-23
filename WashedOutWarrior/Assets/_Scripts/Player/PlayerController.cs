@@ -148,8 +148,15 @@ public class PlayerController : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
+		AudioSource background = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+		if (background != null && background.isPlaying)
+		{
+			background.Pause();
+		}
 		soundEffects[1].Play();
 		GetComponent<GordoMovement>().isDead = true;
+		GetComponent<Animator>().SetTrigger("Dead_01");
+
 		//TODO: add Death screen
 	}
 }

@@ -22,8 +22,14 @@ public class OpeningText : MonoBehaviour {
 	private Button[] buttons;
 	private Text[] texts;
 	private Text chatText;
+	private AudioSource background;
 
 	void Start() {
+		background = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+		if (background != null && background.isPlaying)
+		{
+			background.Pause();
+		}
 		//startTime = Time.time;
 		texts = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
 		buttons = GameObject.Find("Canvas").GetComponentsInChildren<Button>();

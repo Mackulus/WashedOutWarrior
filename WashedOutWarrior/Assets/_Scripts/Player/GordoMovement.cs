@@ -70,6 +70,7 @@ public class GordoMovement : MonoBehaviour {
 	}
 
 	void GordoJumpForce() {
+		GetComponents<AudioSource>()[4].Play();
 		gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*gordoJumpPower);
 	}
 

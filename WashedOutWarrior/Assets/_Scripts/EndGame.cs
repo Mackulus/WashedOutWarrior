@@ -22,9 +22,15 @@ public class EndGame : MonoBehaviour {
 	private SceneFader fadeScr;
 	Transform[] children;
 	private Text chatText;
+	private AudioSource background;
 	
 
 	void Start() {
+		background = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+		if (background != null && background.isPlaying)
+		{
+			background.Pause();
+		}
 		PlayerPrefs.SetInt("NormalModeComplete", 1);
 		fadeScr = GameObject.FindObjectOfType<SceneFader>();
 		gordo = GameObject.Find("OldGordo");
@@ -138,6 +144,10 @@ public class EndGame : MonoBehaviour {
 	}
 
 	public void ChatAndCongrats() {
+		if(background != null)
+		{
+			background.Play();
+		}
 		chatbubble.SetActive(false);
 		Text text = texts[2].GetComponent<Text>();
 		if (PlayerPrefs.GetInt("CalorieBurner") == 0){

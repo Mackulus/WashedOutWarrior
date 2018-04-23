@@ -32,6 +32,11 @@ public class SceneFader : MonoBehaviour {
 
 
 	void StartScene() {
+		AudioSource gameAudio = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+		if (!gameAudio.isPlaying)
+		{
+			gameAudio.Play();
+		}
 		FadeImg.gameObject.SetActive(true);
 		FadeImg.enabled = true;
 		// Fade the texture to clear.
