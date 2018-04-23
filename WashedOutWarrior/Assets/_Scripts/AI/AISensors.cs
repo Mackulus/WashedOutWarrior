@@ -63,7 +63,7 @@ public class AISensors : Listener {
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		// Checking for weapon tag is important, I don't want enemies to be hit when weapon is not swinging
-		if (collision.CompareTag("Weapon") && healthBar != null && !isImmune) {
+		if (collision.CompareTag("Weapon") && healthBar != null && !isImmune && collision.name != "Table Spoon") {
 			if (!gameObject.name.Contains("Pizza")) {
 				healthBar.OnDamage();
 			}
