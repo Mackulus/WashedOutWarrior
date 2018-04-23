@@ -53,8 +53,8 @@ public class WeaponSelect : MonoBehaviour {
 	}
 
 	public void ChangeWeapon(int weaponSelected) {
-		print("Selected " + weaponSelected);
-		print("In hand " + weaponInHand);
+		//print("Selected " + weaponSelected);
+		//print("In hand " + weaponInHand);
 		//print("Spoon? " + pickedUpSpoon);
 		if (weaponSelected != weaponInHand && (pickedUpSpoon || weaponSelected != 2) && (pickedUpKnife || weaponSelected != 3)) {
 			weapons[weaponInHand - 1].gameObject.SetActive(false);
@@ -63,7 +63,7 @@ public class WeaponSelect : MonoBehaviour {
 			weaponInHand = weaponSelected;
 		}
 		else {
-			print("Stopped it");
+			//print("Stopped it");
 		}
 	}
 }

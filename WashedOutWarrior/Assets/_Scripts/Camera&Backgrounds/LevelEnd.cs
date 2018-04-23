@@ -15,12 +15,10 @@ public class LevelEnd : Listener {
 
 	private void Awake() {
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Boss")) {
-			if (g.name == "IceCreamBoss")
-			{
+			if (g.name == "IceCreamBoss") {
 				healthBarBoss.Add(g.GetComponent<AIPopsicleBoss>().healthBar);
 			}
-			else
-			{
+			else if (g.GetComponent<AISensors>() != null) {
 				healthBarBoss.Add(g.GetComponent<AISensors>().healthBar);
 			}
 		}

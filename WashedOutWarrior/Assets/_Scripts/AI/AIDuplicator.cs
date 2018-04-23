@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class AIDuplicator : MonoBehaviour {
 	public AISensors sensor;
-	public GameObject toDuplicate;
+	public GameObject[] toDuplicate = new GameObject[2];
 	private bool duplicate = true;
 
 	void Duplicate() {
 		for (int i = 0; i < 2; i++) {
-			GameObject temp = Instantiate(toDuplicate);
-			if (transform != null) {
-				temp.transform.position = transform.position;
-			}
-			if (sensor != null) {
-				temp.transform.position += (Vector3)(sensor.playerRelPos * -2);
+			print("Duplicating: " + i);
+			GameObject temp = Instantiate(toDuplicate[i]);
+			temp.transform.position = transform.position;
+			temp.transform.position -= (Vector3)(sensor.playerRelPos * (1 + i));
+
+			if (temp.GetComponent<AIDuplicator>() != null) {
+				temp.GetComponent<AIDuplicator>().enabled = false;
 			}
 		}
 	}

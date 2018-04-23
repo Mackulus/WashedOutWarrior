@@ -108,9 +108,10 @@ GameObject:
   - component: {fileID: 114987692877819884}
   - component: {fileID: 114249606209876670}
   - component: {fileID: 114073103012176430}
+  - component: {fileID: 114178668523916268}
   m_Layer: 0
   m_Name: PizzaBoss
-  m_TagString: Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,8 +215,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340551848817576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 442.8, y: 9, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 4823263011106286}
@@ -543,8 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c9a906aadc0824688a4e538ef68797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensor: {fileID: 0}
-  child: {fileID: 0}
+  sensor: {fileID: 114987692877819884}
+  child: {fileID: 1217741732599474, guid: 4c0f4e6630358bc46ab6aad55ebe8508, type: 2}
   maxSpawns: 20
 --- !u!114 &114165063211634170
 MonoBehaviour:
@@ -557,13 +558,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5baaacbaa3d92439086d9599fa1dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 20
   damage: 0
   deathListeners: []
   spriteIcons:
   - {fileID: 21300000, guid: 58049bbb008237e40a0d6c2ec45128d7, type: 3}
   - {fileID: 21300000, guid: 25aaabf97acd24142bb971a335ae242f, type: 3}
   - {fileID: 21300000, guid: c0c8af2f6afb332439ab8ab3fd5b112e, type: 3}
+--- !u!114 &114178668523916268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340551848817576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457fe28a55f042a3a4f08826231e586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensor: {fileID: 114987692877819884}
+  toDuplicate:
+  - {fileID: 1340551848817576}
+  - {fileID: 1340551848817576, guid: d7a3715c298a7b74b9a5efab0ce84179, type: 2}
 --- !u!114 &114249606209876670
 MonoBehaviour:
   m_ObjectHideFlags: 1

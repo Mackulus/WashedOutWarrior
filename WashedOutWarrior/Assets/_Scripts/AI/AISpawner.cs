@@ -20,7 +20,7 @@ public class AISpawner : MonoBehaviour {
 
 	private void Update() {
 		if ((!IsInvoking("Spawn")) && sensor != null && sensor.playerRelPos != Vector2.zero) {
-			InvokeRepeating("Spawn", 5f, 15f);
+			InvokeRepeating("Spawn", 5f, 1f);
 		}
 	}
 
@@ -31,6 +31,7 @@ public class AISpawner : MonoBehaviour {
 				child.transform.position = t.position;
 				maxSpawns--;
 			}
+			if (maxSpawns <= 0) CancelInvoke("Spawn");
 		}
 	}
 	

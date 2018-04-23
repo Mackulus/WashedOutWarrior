@@ -56,9 +56,15 @@ public class AIMovement : MonoBehaviour {
 		else if (collision.collider.CompareTag("Bullet")) {
 			Destroy(collision.collider.gameObject);
 		}
+		else if (collision.collider.CompareTag("Enemy") && !isTypeJumping) {
+			isGrounded = true;
+		}
 	}
 	private void OnCollisionStay2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("LollipopWall")) {
+			isGrounded = true;
+		}
+		else if (collision.collider.CompareTag("Enemy") && !isTypeJumping) {
 			isGrounded = true;
 		}
 	}
@@ -67,6 +73,9 @@ public class AIMovement : MonoBehaviour {
 			isGrounded = false;
 		}
 		else if (collision.collider.CompareTag("LollipopWall")){
+			isGrounded = false;
+		}
+		else if (collision.collider.CompareTag("Enemy") && !isTypeJumping) {
 			isGrounded = false;
 		}
 	}

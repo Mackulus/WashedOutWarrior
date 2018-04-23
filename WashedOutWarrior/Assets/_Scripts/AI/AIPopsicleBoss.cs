@@ -19,7 +19,7 @@ public class AIPopsicleBoss : Listener {
 			healthBar.deathListeners.Add(this);
 		}
 		bulletOrigins = GameObject.Find("BulletSpawners").transform.childCount;
-		print("Num origins " + bulletOrigins);
+		//print("Num origins " + bulletOrigins);
 		rand = new System.Random();
 		InvokeRepeating("ChooseWhere", 0f, 1f);
 		InvokeRepeating("FireAll", 10f, 5f);

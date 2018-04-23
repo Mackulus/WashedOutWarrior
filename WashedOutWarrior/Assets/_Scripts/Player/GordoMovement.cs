@@ -77,7 +77,7 @@ public class GordoMovement : MonoBehaviour {
 
 	public IEnumerator WaitForGrounded() {
 		yield return new WaitUntil(()=> isGrounded == true);
-		print("Made it to the ground");
+		//print("Made it to the ground");
 		anim.SetTrigger("Land_01");
 		Invoke("FinishJump", 0.5f);
 	}
@@ -91,7 +91,7 @@ public class GordoMovement : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         //print(collision.collider.tag);
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
-			print("Entered");
+			//print("Entered");
             isGrounded = true;
         }
     }
@@ -102,7 +102,7 @@ public class GordoMovement : MonoBehaviour {
 	}
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("LollipopWall")) {
-			print("Exited");
+			//print("Exited");
 			isGrounded = false;
 		}
     }
