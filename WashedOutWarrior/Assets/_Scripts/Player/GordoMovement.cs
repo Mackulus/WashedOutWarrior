@@ -11,6 +11,7 @@ public class GordoMovement : MonoBehaviour {
 	private bool isWalking = false;
 	bool isGrounded = true;
 	bool isJumping = false;
+	public bool isDead = false;
 
 	void Start() {
 		anim = GetComponent<Animator>();
@@ -19,7 +20,9 @@ public class GordoMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		MoveGordo();
+		if(!isDead){
+			MoveGordo();
+		}
         //GordoRaycast();
 	}
 

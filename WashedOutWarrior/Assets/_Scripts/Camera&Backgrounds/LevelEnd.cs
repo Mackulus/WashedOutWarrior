@@ -55,12 +55,14 @@ public class LevelEnd : Listener {
 		}
 		else {
 			if (defeatAllBosses) {
+				GetComponent<AudioSource>().Play();
 				//TODO: Implement detecting which boss was killed
 				winText.gameObject.SetActive(true);
 				Invoke("NextLevel", 2f);
 				//SceneManager.LoadScene("MainMenu");
 			}
 			else {
+				GetComponent<AudioSource>().Play();
 				winText.gameObject.SetActive(true);
 				Invoke("NextLevel", 2f);
 				//SceneManager.LoadScene("MainMenu");
@@ -70,7 +72,7 @@ public class LevelEnd : Listener {
 
 	void ResetLevel()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		fadeScr.EndScene(SceneManager.GetActiveScene().name);
 	}
 
 	void NextLevel()

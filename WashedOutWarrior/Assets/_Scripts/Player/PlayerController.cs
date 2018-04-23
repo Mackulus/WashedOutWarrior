@@ -11,6 +11,7 @@ public class PlayerController : Listener {
 	public GordoMovement gordo;
 	public CopyTransform weapon;
 	public WeaponSelect weapons;
+	private AudioSource[] soundEffects;
 
 	private int calorieBurner;
 
@@ -22,6 +23,7 @@ public class PlayerController : Listener {
 
 	void Start()
 	{
+		soundEffects = GetComponents<AudioSource>();
 		calorieBurner = PlayerPrefs.GetInt("CalorieBurner");
 	}
 	
@@ -51,34 +53,41 @@ public class PlayerController : Listener {
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.CompareTag("Enemy")) {
-			healthBar.OnDamage();
-			if (calorieBurner == 1){
+		if(!GetComponent<GordoMovement>().isDead)
+		{
+			if (collision.collider.CompareTag("Enemy")) {
+				soundEffects[0].Play();
 				healthBar.OnDamage();
+				if (calorieBurner == 1){
+					healthBar.OnDamage();
+				}
 			}
-		}
-		else if (collision.collider.CompareTag("HealthPickup")) {
-			collision.collider.gameObject.SetActive(false);
-			if (calorieBurner == 1){
-				healthBar.OnDamage(-5);
+			else if (collision.collider.CompareTag("HealthPickup")) {
+				soundEffects[2].Play();
+				collision.collider.gameObject.SetActive(false);
+				if (calorieBurner == 1){
+					healthBar.OnDamage(-5);
+				}
+				else{
+					healthBar.OnDamage(-10);
+				}
 			}
-			else{
-				healthBar.OnDamage(-10);
-			}
-		}
-		else if (collision.collider.CompareTag("Boss")) {
-			healthBar.OnDamage(2);
-			if (calorieBurner == 1){
+			else if (collision.collider.CompareTag("Boss")) {
+				soundEffects[0].Play();
 				healthBar.OnDamage(2);
+				if (calorieBurner == 1){
+					healthBar.OnDamage(2);
+				}
 			}
-		}
-		else if (collision.collider.CompareTag("Bullet")) {
-			if(collision.gameObject.GetComponent<Bullet>().HasHitPlayer() == false)
-			{
-				//print("Hit");
-				collision.gameObject.GetComponent<Bullet>().HitPlayer();
-				Destroy(collision.collider.gameObject);
-				healthBar.OnDamage();
+			else if (collision.collider.CompareTag("Bullet")) {
+				if(collision.gameObject.GetComponent<Bullet>().HasHitPlayer() == false)
+				{
+					soundEffects[0].Play();
+					//print("Hit");
+					collision.gameObject.GetComponent<Bullet>().HitPlayer();
+					Destroy(collision.collider.gameObject);
+					healthBar.OnDamage();
+				}
 			}
 		}
 	}
@@ -101,6 +110,7 @@ public class PlayerController : Listener {
 	public IEnumerator SwingWeapon() {
 		isSwinging = true;
 		weapons.CurrentWeapon().tag = "Weapon";
+		soundEffects[3].Play();
 		//print("SwingWeapon");
 
 		float startOffset, endOffset;
@@ -138,6 +148,8 @@ public class PlayerController : Listener {
 	}
 
 	override public void OnHear(GameObject g) {
+		soundEffects[1].Play();
+		GetComponent<GordoMovement>().isDead = true;
 		//TODO: add Death screen
 	}
 }
