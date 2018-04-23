@@ -121,6 +121,7 @@ public class OpeningText : MonoBehaviour {
 
 	void ChatBubbleInactiveAndLoadButtons()
 	{
+		texts[2].enabled = true;
 		chatbubble.SetActive(false);
 		for (int i = 0; i < buttons.Length; i++)
 		{
