@@ -584,7 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensor: {fileID: 114251130357692628}
   speed: 1
-  jumpStrength: 500
+  jumpStrength: 250
   isTypeJumping: 1
   isTypePatroling: 0
 --- !u!114 &114058872798382478
