@@ -4,7 +4,10 @@ https://github.com/Mackulus/WashedOutWarrior.git
 
 Gordo has been struggling with his weight for years, only now has he learned that he is gravely ill. If he does not change his ways, he will surely meet an early grave at the hands of his cravings. Armed initially with a spork, help Gordo battle against temptation as he faces some delectable enemies. First run through too easy? Try 'Calorie Burner' mode on your second try, it'll have your palms sweating!
 
-Game has no bugs that we are currently aware of, though testing probably wasn't as thorough as we would've liked it to have been
+Type "fat" to be transported to the levels boss.
+Type "smash" to instantly win the level.
+
+Game has no bugs that we are currently aware of, though testing probably wasn't as thorough as we would've liked it to have been.
 
 Bryce: Healthbar and health scripts, Most of level 1 and 3, AI health script as well as the scripts AIMovement and AISpawner, also edited most of the other AI scripts to be able to work together, enemy creation, platform creation, camera follow scripts, weapon select and weapon scripts as well as weapon design and attaching the weapon to the player, greatly modified player movement script, level end script.
 
