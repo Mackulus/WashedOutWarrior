@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AIDuplicator : MonoBehaviour {
 	public AISensors sensor;
 	public GameObject[] toDuplicate = new GameObject[2];
-	private bool duplicate = true;
+	//private bool duplicate = true;
 
 	void Duplicate() {
 		for (int i = 0; i < 2; i++) {
@@ -20,10 +18,10 @@ public class AIDuplicator : MonoBehaviour {
 		}
 	}
 
-	//To be used later to make a boss where some duplications are false and others are true;
+	/*To be used later to make a boss where some duplications are false and others are true;
 	void ChangeDuplicate(bool newDuplicate) {
 		duplicate = newDuplicate;
-	}	
+	}*/	
 	
 	void OnDisable() {
 		if (toDuplicate != null) {

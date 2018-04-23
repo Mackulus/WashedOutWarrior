@@ -83,6 +83,7 @@ public class LevelEnd : Listener {
 		}
 		else
 		{
+			PlayerPrefs.SetInt("CalorieBurnerUnlocked", 1);
 			fadeScr.EndScene("EndGame");
 		}
 	}

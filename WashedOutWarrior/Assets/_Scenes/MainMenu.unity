@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 1498191020}
   - component: {fileID: 1498191019}
   - component: {fileID: 1498191018}
+  - component: {fileID: 1498191021}
   m_Layer: 5
   m_Name: Calorie Burner
   m_TagString: Untagged
@@ -1285,6 +1286,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1498191016}
+--- !u!114 &1498191021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1498191016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c254bffa5a5c047b6e3ce08a336f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPref: CalorieBurnerUnlocked
 --- !u!1 &1498344311
 GameObject:
   m_ObjectHideFlags: 0
