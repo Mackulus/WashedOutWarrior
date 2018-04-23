@@ -21,6 +21,7 @@ public class OpeningText : MonoBehaviour {
 	private bool transitionsFinished = false;
 	private Button[] buttons;
 	private Text[] texts;
+	private Text chatText;
 
 	void Start() {
 		//startTime = Time.time;
@@ -29,18 +30,24 @@ public class OpeningText : MonoBehaviour {
 		for (int i = 0; i < buttons.Length; i++) {
 			buttons[i].gameObject.SetActive(false);
 		}
+		chatText = chatbubble.GetComponentInChildren<Text>();
 	}
 
 
 	void Update() {
-		if (!transitioning && !transitionsFinished) {
+		print("Im running");
+		if (!transitioning && !transitionsFinished && chatText != null) {
 			transitioning = true;
 			if (fadeIn) {
-				StartCoroutine(FadeTextToFullAlpha(1f, GetComponent<Text>()));
+				StartCoroutine(FadeTextToFullAlpha(1f, chatText));
 			}
 			else {
-				StartCoroutine(FadeTextToZeroAlpha(1f, GetComponent<Text>()));
+				StartCoroutine(FadeTextToZeroAlpha(1f, chatText));
 			}
+		}
+		else if(chatText == null && !transitionsFinished)
+		{
+			chatText = chatbubble.GetComponentInChildren<Text>();
 		}
 
 		if (Input.anyKeyDown && !transitionsFinished)
@@ -56,11 +63,7 @@ public class OpeningText : MonoBehaviour {
 		GameObject.Find("MainMenuBackground").GetComponent<SpriteRenderer>().color = fadedIn;
 		texts[0].GetComponent<Text>().color = fadedIn;
 		texts[1].GetComponent<Text>().color = fadedIn;
-		chatbubble.SetActive(false);
-		for (int i = 0; i < buttons.Length; i++)
-		{
-			buttons[i].gameObject.SetActive(true);
-		}
+		ChatBubbleInactiveAndLoadButtons();
 	}
 		
 	public IEnumerator FadeTextToFullAlpha(float t, Text i) {
@@ -107,10 +110,17 @@ public class OpeningText : MonoBehaviour {
 
 	public IEnumerator BringInButtons() {
 		yield return new WaitForSeconds(3);
+		ChatBubbleInactiveAndLoadButtons();
+	}
+
+	void ChatBubbleInactiveAndLoadButtons()
+	{
 		chatbubble.SetActive(false);
 		for (int i = 0; i < buttons.Length; i++)
 		{
-			buttons[i].gameObject.SetActive(true);
+			if(i != 1 || (i == 1 && PlayerPrefs.HasKey("NormalModeComplete"))){
+				buttons[i].gameObject.SetActive(true);
+			}
 		}
 	}
 }

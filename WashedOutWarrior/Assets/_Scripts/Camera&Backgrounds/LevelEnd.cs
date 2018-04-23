@@ -83,7 +83,7 @@ public class LevelEnd : Listener {
 		}
 		else
 		{
-			fadeScr.EndScene("MainMenu");
+			fadeScr.EndScene("EndGame");
 		}
 	}
 }
